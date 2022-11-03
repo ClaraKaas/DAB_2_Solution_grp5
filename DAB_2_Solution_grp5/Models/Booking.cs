@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAB_2_Solution_grp5.Models
 {
-    internal class Books
+    internal class Booking
     {
+
     }
 }
