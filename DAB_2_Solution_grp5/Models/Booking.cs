@@ -16,7 +16,7 @@ namespace DAB_2_Solution_grp5.Models
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public int facilityId { get; set; }
+        public int FacilityId { get; set; }
         public Facility Facility { get; set; }
 
     }
