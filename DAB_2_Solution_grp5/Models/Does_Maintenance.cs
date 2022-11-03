@@ -8,10 +8,11 @@ namespace DAB_2_Solution_grp5.Models
 {
     public class Does_Maintenance
     {
-        public int Does_MaintenanceÍd { get; set; }
+        public int Does_MaintenanceId { get; set; }
 
 
         public int FacilityId { get; set; }
+
         public Facility Facility { get; set; }
 
         public int MaintenanceId { get; set; }
