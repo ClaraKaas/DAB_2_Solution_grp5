@@ -20,5 +20,6 @@ namespace DAB_2_Solution_grp5.Models
 
         public int PersId { get; set; }
         public Personnel Personnel { get; set; }
+
     }
 }
