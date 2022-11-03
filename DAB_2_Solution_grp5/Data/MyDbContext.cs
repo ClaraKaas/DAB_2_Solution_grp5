@@ -19,33 +19,51 @@ namespace DAB_2_Solution_grp5.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Author
-            modelBuilder.Entity<Author>().HasKey(a => new { a.FirstName, a.LastName });
+            // User
+            modelBuilder.Entity<User>().HasKey(a => a.UserId);
 
-            // Book
-            modelBuilder.Entity<Book>().HasKey(b => b.Isbn);
-            modelBuilder.Entity<Book>() // One to many
-                .HasMany<Review>(b => b.Reviews)
-                .WithOne(r => r.Book)
-                .HasForeignKey(r => r.BookIsbn);
-            modelBuilder.Entity<Book>()
-                .HasDiscriminator<string>("type")
-                .HasValue<Book>("book")
-                .HasValue<PriceOffer>("PriceOffer");
+            // Activity
+            modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
+            
+            // Facility
+            modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
+            
+            // MaintenanceLog
+            modelBuilder.Entity<MaintenanceLog>().HasKey(b => b.MaintenanceId);
+            
+            // Personnel
+            modelBuilder.Entity<Personnel>().HasKey(b => b.PersId);
+
+            // Booking
+            modelBuilder.Entity<Booking>()
+                .HasOne(ba => ba.User)
+                .WithMany(b => b.Bookings)
+                .HasForeignKey(ba => ba.UserId);
+            modelBuilder.Entity<Booking>()
+                .HasOne(ba => ba.Activity)
+                .WithMany(a => a.Bookings)
+                .HasForeignKey(ba => ba.ActivityId);
+            modelBuilder.Entity<Booking>()
+                .HasOne(ba => ba.Facility)
+                .WithMany(a => a.Bookings)
+                .HasForeignKey(ba => ba.FacilityId);
+            
+
+            // Does_Maintenance
+            modelBuilder.Entity<Does_Maintenance>()
+                .HasOne(ba => ba.Facility)
+                .WithMany(a => a.Does_Maintenances)
+                .HasForeignKey(ba => ba.FacilityId);
+            modelBuilder.Entity<Does_Maintenance>()
+                .HasOne(ba => ba.MaintenanceLog)
+                .WithMany(a => a.Does_Maintenances)
+                .HasForeignKey(ba => ba.MaintenanceId);
+            modelBuilder.Entity<Does_Maintenance>()
+                .HasOne(ba => ba.Personnel)
+                .WithMany(b => b.Does_Maintenances)
+                .HasForeignKey(ba => ba.PersId);
 
 
-            // PriceOffer
-            // Reivew
-
-            // BookAuthors (many to many)
-            modelBuilder.Entity<BookAuthors>()
-                .HasOne(ba => ba.Book)
-                .WithMany(b => b.BookAuthors)
-                .HasForeignKey(ba => ba.BookIsbn);
-            modelBuilder.Entity<BookAuthors>()
-                .HasOne(ba => ba.Author)
-                .WithMany(a => a.BookAuthors)
-                .HasForeignKey(ba => new { ba.AuthorFirstName, ba.AuthorLastName });
 
         }
 
