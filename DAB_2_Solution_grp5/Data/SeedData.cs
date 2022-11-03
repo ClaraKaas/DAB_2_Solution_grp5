@@ -25,7 +25,7 @@ namespace DAB_2_Solution_grp5.Data
 
 
 
-            Facility AarhusStrand= new Facility()
+            Facility AarhusStrand = new Facility()
             {
                 FacilityID = 1234567,
                 Name = "AarhusStrand",
@@ -109,23 +109,57 @@ namespace DAB_2_Solution_grp5.Data
             Booking booking2 = new Booking()
             {
 
-                BookingId = 12,
-                ActivityId = 1,
-                UserId = 2022,
-                FacilityId = 1234567
+                BookingId = 14,
+                ActivityId = 2,
+                UserId = 2030,
+                FacilityId = 35899387
 
 
             };
 
+            db.Add(booking1);
+            db.Add(booking2);
 
+            Personnel Personnel1 = new Personnel()
+            {
 
+                PersId = 14
+            };
 
+            Personnel Personnel2 = new Personnel()
+            {
 
+                PersId = 15
+            };
 
+            db.Add(Personnel1);
+            db.Add(Personnel2);
 
+            MaintenanceLog MaintenanceLog1 = new MaintenanceLog()
+            {
 
+                MaintenanceId = 1955,
+                Description = "Ved ikke",
+                Date = DateTime.Now.Add(TimeSpan.FromHours(15)),
 
+            };
+
+            MaintenanceLog MaintenanceLog2 = new MaintenanceLog()
+            {
+
+                MaintenanceId = 1966,
+                Description = "gegikvep",
+                Date = DateTime.Now.Add(TimeSpan.FromHours(15)),
+
+            };
+            db.Add(MaintenanceLog1);
+            db.Add(MaintenanceLog2);
 
 
         }
+
+
+
+
     }
+}
