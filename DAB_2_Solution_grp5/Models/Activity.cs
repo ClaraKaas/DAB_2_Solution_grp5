@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAB_2_Solution_grp5.Models
 {
-    internal class Activity
+    public class Activity
     {
         public int ActivityId { get; set; }
         public DateTime Time { get; set; }

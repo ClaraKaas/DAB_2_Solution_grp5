@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace DAB_2_Solution_grp5.Models
 {
-    internal class Does_Maintenance
+    public class Does_Maintenance
     {
+        public int Does_MaintenanceÍd { get; set; }
+
+
+        public int FacilityId { get; set; }
+        public Facility Facility { get; set; }
+
+        public int MaintenanceId { get; set; }
+        public MaintenanceLog MaintenanceLog { get; set; }
+
+        public int PersId { get; set; }
+        public Personnel Personnel { get; set; }
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DAB_2_Solution_grp5.Models
 {
-    internal class Personnel
+    public class Personnel
     {
         public int PersId { get; set; }
+        public List<Does_Maintenance> Does_Maintenances { get; set; }
     }
 }
