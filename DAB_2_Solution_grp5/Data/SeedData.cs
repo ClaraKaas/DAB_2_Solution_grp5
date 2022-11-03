@@ -167,8 +167,10 @@ namespace DAB_2_Solution_grp5.Data
             };
 
             db.Add(Does_Maintenanc1);
-           
 
+            Console.WriteLine("Seeding completed successfully!");
+
+            db.SaveChangesAsync();
 
 
 
