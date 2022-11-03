@@ -21,7 +21,7 @@ namespace DAB_2_Solution_grp5.Data
             var db = new MyDbContext();
 
 
-            Console.WriteLine("Seeding!");
+            Console.WriteLine("\n" + "Seeding!");
 
 
 

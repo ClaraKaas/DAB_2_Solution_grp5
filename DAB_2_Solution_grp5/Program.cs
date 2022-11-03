@@ -25,19 +25,19 @@ namespace DAB_2_Solution_grp5.Data
                 SeedData.SeedDatabase();
             }
 
-            System.Console.WriteLine("Show all products Y/n");
+            System.Console.WriteLine("\n" + "Show all products Y/n" );
             consoleKeyInfo = Console.ReadKey();
             if (consoleKeyInfo.KeyChar == 'Y')
             {
                 ShowAllData(db, 'X');
             }
-            System.Console.WriteLine("List all Facilities(F), Users(U), Activities(A)");
+            System.Console.WriteLine("\n" + "List all Facilities(F), Users(U), Activities(A)");
             consoleKeyInfo = Console.ReadKey();
             if (consoleKeyInfo.KeyChar == 'p' || consoleKeyInfo.KeyChar == 'l' || consoleKeyInfo.KeyChar == 'm')
             {
                 ShowAllData(db, consoleKeyInfo.KeyChar);
             }
-            Console.WriteLine("Slut");
+            Console.WriteLine("\n" + "Slut");
 
 
             
@@ -73,15 +73,15 @@ namespace DAB_2_Solution_grp5.Data
         {
             foreach (var pc in db.facilities.Include(p => p.Bookings).ToList())
             {
-                System.Console.WriteLine(pc);
+                Console.WriteLine(pc);
             }
         }
 
         private static void ListAllUsers(MyDbContext db)
         {
-            foreach (var pc in db.users.Include(p => p.Bookings).ToList())
+            foreach (var user in db.users)
             {
-                System.Console.WriteLine(pc);
+                Console.WriteLine(user.UserId);
             }
         }
 
@@ -89,7 +89,7 @@ namespace DAB_2_Solution_grp5.Data
         {
             foreach (var pc in db.activities.Include(p => p.Bookings).ToList())
             {
-                System.Console.WriteLine(pc);
+                Console.WriteLine(pc);
             }
         }
 
