@@ -158,7 +158,7 @@ namespace DAB_2_Solution_grp5.Data
             Does_Maintenance Does_Maintenanc1 = new Does_Maintenance()
             {
 
-                Does_Maintenance = 19,
+                Does_MaintenanceId = 19,
                 FacilityId = 1234567,
                 MaintenanceId = 1955,
                 PersId = 15
