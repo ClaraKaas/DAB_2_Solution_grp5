@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAB_2_Solution_grp5.Models
 {
-    internal class Booking
+    public class Booking
     {
         public int BookingID { get; set; }
 
