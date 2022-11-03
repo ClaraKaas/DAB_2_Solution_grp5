@@ -10,8 +10,14 @@ namespace DAB_2_Solution_grp5.Data
 {
     public class MyDbContext : DbContext
     {
-        //public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
+        public DbSet<Facility> facilities { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Activity> activities { get; set; }
+        public DbSet<Personnel> personnels { get; set; }
+        public DbSet<MaintenanceLog> maintenanceLogs { get; set; }
 
+
+        //public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("REPLACE_WITH_A_USEFULL_CONNECTION_STRING");
