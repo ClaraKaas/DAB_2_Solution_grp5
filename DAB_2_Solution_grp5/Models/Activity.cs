@@ -12,5 +12,7 @@ namespace DAB_2_Solution_grp5.Models
         public DateTime Time { get; set; }
         public string Note { get; set; }
         public int Participants { get; set; }
+
+        public List<Booking> Bookings { get; set; }
     }
 }
