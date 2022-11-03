@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAB_2_Solution_grp5.Models
 {
-    internal class User
+    public class User
     {
         public int UserID { get; set; }
         public string Name { get; set; }
