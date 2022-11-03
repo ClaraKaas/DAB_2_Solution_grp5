@@ -10,15 +10,13 @@ namespace DAB_2_Solution_grp5.Data
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            using var db = new MyDbContext();
+            MyDbContext db = new MyDbContext();
 
-            Console.WriteLine("Hello World!");
-            var facility = db.Facility.
-                OrderBy(b => b.FacilityId)
-                .First();
+            SeedData.SeedDatabase();
 
+            Console.WriteLine("Hej");
 
            
 

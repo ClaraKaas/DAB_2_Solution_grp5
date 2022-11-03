@@ -27,7 +27,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Facility AarhusStrand = new Facility()
             {
-                FacilityID = 1234567,
+                FacilityId = 1234567,
                 Name = "AarhusStrand",
                 Address = "Strand 9",
                 Type = "Privat",
@@ -39,7 +39,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Facility Navitas = new Facility()
             {
-                FacilityID = 35899387,
+                FacilityId = 35899387,
                 Name = "Navitas",
                 Address = "Møllevej 15",
                 Type = "forretning",
@@ -74,7 +74,7 @@ namespace DAB_2_Solution_grp5.Data
 
             User User1 = new User()
             {
-                UserID = 2022,
+                UserId = 2022,
                 Name = "Clara",
                 Email = "clara@gmail.com",
                 CVR = "109876543",
@@ -85,7 +85,7 @@ namespace DAB_2_Solution_grp5.Data
 
             User User2 = new User()
             {
-                UserID = 2030,
+                UserId = 2030,
                 Name = "Heja",
                 Email = "Heja@gmail.com",
                 CVR = "098765432",
