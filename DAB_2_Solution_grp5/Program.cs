@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace DAB_2_Solution_grp5
+{
+    class Program
+    {
+
+    }
+}

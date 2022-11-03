@@ -8,15 +8,15 @@ namespace DAB_2_Solution_grp5.Models
 {
     public class Booking
     {
-        public int BookingID { get; set; }
+        public int BookingId { get; set; }
 
-        public int ActivityID { get; set; }
+        public int ActivityId { get; set; }
         public Activity Activity { get; set; }
 
-        public int UserID { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
 
-        public int facilityID { get; set; }
+        public int facilityId { get; set; }
         public Facility Facility { get; set; }
 
     }
