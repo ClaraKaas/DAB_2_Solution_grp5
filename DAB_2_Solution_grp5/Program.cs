@@ -26,7 +26,7 @@ namespace DAB_2_Solution_grp5.Data
                 SeedData.SeedDatabase();
             }
             Console.WriteLine("1");
-            var facility1 = db.facilities.ToList();
+            var facility1 = db.Facilities.ToList();
             Console.WriteLine("2");
             foreach (var i in facility1)
             {
@@ -82,7 +82,7 @@ namespace DAB_2_Solution_grp5.Data
         }
         private static void ListAllFacilities(MyDbContext db)
         {
-            var fac = db.facilities.Include(b => b.FacilityId).ToList();
+            var fac = db.Facilities.Include(b => b.FacilityId).ToList();
 
             
             {
@@ -92,7 +92,7 @@ namespace DAB_2_Solution_grp5.Data
 
         private static void ListAllUsers(MyDbContext db)
         {
-            foreach (var user in db.users)
+            foreach (var user in db.Users)
             {
                 Console.WriteLine(user.UserId);
             }
@@ -100,7 +100,7 @@ namespace DAB_2_Solution_grp5.Data
 
         private static void ListAllActivities(MyDbContext db)
         {
-            foreach (var pc in db.activities.Include(p => p.Bookings).ToList())
+            foreach (var pc in db.Activities.Include(p => p.Bookings).ToList())
             {
                 Console.WriteLine(pc);
             }
