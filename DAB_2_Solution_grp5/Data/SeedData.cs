@@ -53,7 +53,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Activity Activity1 = new Activity()
             {
-                ActivityId = 1,
+
                 Time = DateTime.Now.Add(TimeSpan.FromHours(10)),
                 Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                 Participants = 5,
