@@ -48,8 +48,32 @@ namespace DAB_2_Solution_grp5.Data
                 Items = "Bord og stoler"
 
             };
+            Facility AU = new Facility()
+            {
+
+                Name = "Aarhus Universitet",
+                Address = "Finlandsgade 22",
+                Type = "forretning",
+                Description = "Skole",
+                Bookable = "Ja",
+                Items = "Bord og stoler"
+
+            };
+            Facility StorcenterNord  = new Facility()
+            {
+
+                Name = "Storcenter Nord",
+                Address = "Finlandsgade 15",
+                Type = "Shopping",
+                Description = "Ligger i aarhus N",
+                Bookable = "Ja",
+                Items = "Butikker"
+
+            };
             db.Add(AarhusStrand);
             db.Add(Navitas);
+            db.Add(AU);
+            db.Add(StorcenterNord);
 
             Activity Activity1 = new Activity()
             {
@@ -93,8 +117,8 @@ namespace DAB_2_Solution_grp5.Data
                 PhoneNumber = "42336789"
             };
 
-            db.Add(Profile1);
-            db.Add(Profile2);
+            db.Add(Citizen1);
+            db.Add(Citizen2);
 
 
             Personnel Personnel1 = new Personnel()
