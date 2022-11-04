@@ -161,8 +161,19 @@ namespace DAB_2_Solution_grp5.Data
                 Does_MaintenanceId = 19,
                 FacilityId = 1234567,
                 MaintenanceId = 1955,
-                PersId = 15
+                PersId = 14
                
+
+            };
+
+            Does_Maintenance Does_Maintenanc2 = new Does_Maintenance()
+            {
+
+                Does_MaintenanceId = 15,
+                FacilityId = 35899387,
+                MaintenanceId = 1966,
+                PersId = 15
+
 
             };
 
