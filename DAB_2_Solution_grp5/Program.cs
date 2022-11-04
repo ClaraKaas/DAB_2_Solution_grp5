@@ -24,6 +24,7 @@ namespace DAB_2_Solution_grp5.Data
             {
                 SeedData.SeedDatabase();
             }
+            
 
             System.Console.WriteLine("\n" + "Show all products Y/n" );
             consoleKeyInfo = Console.ReadKey();
@@ -71,9 +72,11 @@ namespace DAB_2_Solution_grp5.Data
         }
         private static void ListAllFacilities(MyDbContext db)
         {
-            foreach (var pc in db.facilities.Include(p => p.Bookings).ToList())
+            var fac = db.facilities.Include(b => b.FacilityId).ToList();
+
+            
             {
-                Console.WriteLine(pc);
+                Console.WriteLine("Her er alle" + fac ) ;
             }
         }
 
