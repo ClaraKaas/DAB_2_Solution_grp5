@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using DAB_2_Solution_grp5.Data;
+using DAB_2_Solution_grp5.Models;
 
 
 
