@@ -25,7 +25,16 @@ namespace DAB_2_Solution_grp5.Data
             {
                 SeedData.SeedDatabase();
             }
-            
+            Console.WriteLine("1");
+            var facility1 = db.facilities.ToList();
+            Console.WriteLine("2");
+            foreach (var i in facility1)
+            {
+                Console.WriteLine(string.Join(System.Environment.NewLine, facility1));
+            }
+                Console.WriteLine("3");
+            //    foreach (var facility in facilitylist)   
+            //Console.WriteLine(facility.FacilityId);
 
             System.Console.WriteLine("\n" + "Show all products Y/n" );
             consoleKeyInfo = Console.ReadKey();
@@ -35,7 +44,7 @@ namespace DAB_2_Solution_grp5.Data
             }
             System.Console.WriteLine("\n" + "List all Facilities(F), Users(U), Activities(A)");
             consoleKeyInfo = Console.ReadKey();
-            if (consoleKeyInfo.KeyChar == 'p' || consoleKeyInfo.KeyChar == 'l' || consoleKeyInfo.KeyChar == 'm')
+            if (consoleKeyInfo.KeyChar == 'F' || consoleKeyInfo.KeyChar == 'A' || consoleKeyInfo.KeyChar == 'U')
             {
                 ShowAllData(db, consoleKeyInfo.KeyChar);
             }

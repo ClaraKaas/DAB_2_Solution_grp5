@@ -181,9 +181,9 @@ namespace DAB_2_Solution_grp5.Data
 
             Console.WriteLine("Seeding completed successfully!");
 
-            db.SaveChangesAsync();
+            db.SaveChanges();
 
-
+            Console.WriteLine("Changes saved");
 
         }
 

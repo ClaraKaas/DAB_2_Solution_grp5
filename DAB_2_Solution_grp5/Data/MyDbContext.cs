@@ -10,24 +10,26 @@ namespace DAB_2_Solution_grp5.Data
 {
     public class MyDbContext : DbContext
     {
-        public DbSet<Facility> facilities { get; set; }
-        public DbSet<User> users { get; set; }
-        public DbSet<Activity> activities { get; set; }
-        public DbSet<Personnel> personnels { get; set; }
-        public DbSet<MaintenanceLog> maintenanceLogs { get; set; }
-
-
         //public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer("Data Source=127.0.0.1,1433;Database=DAB2;User Id=sa;Password=Rasm223j.;TrustServerCertificate=True");
         }
+
+        public DbSet<Facility> Facilities { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Personnel> Personnels { get; set; }
+        public DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
+
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // User
             modelBuilder.Entity<User>().HasKey(a => a.UserId);
-
+            
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             
@@ -69,9 +71,9 @@ namespace DAB_2_Solution_grp5.Data
                 .WithMany(b => b.Does_Maintenances)
                 .HasForeignKey(ba => ba.PersId);
 
-
+        
 
         }
-
+        
     }
 }
