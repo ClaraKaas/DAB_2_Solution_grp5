@@ -127,7 +127,7 @@ namespace DAB_2_Solution_grp5.Data
 
         private static void ListAllProfile(MyDbContext db)
         {
-            foreach (var user in db.Users)
+            foreach (var user in db.Profile)
             {
                 Console.WriteLine(user.ProfileId);
             }
