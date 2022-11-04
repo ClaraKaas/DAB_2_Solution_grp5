@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAB_2_Solution_grp5.Models
 {
-    public class User
+    public class Profile
     {
         
-        public int UserId { get; set; }
+        public int ProfileId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string CVR { get; set; }
