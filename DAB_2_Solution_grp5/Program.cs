@@ -3,9 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using DAB_2_Solution_grp5.Data;
 using DAB_2_Solution_grp5.Models;
-
-
-
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.ConstrainedExecution;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace DAB_2_Solution_grp5.Data
 {
@@ -13,6 +13,41 @@ namespace DAB_2_Solution_grp5.Data
     {
         static void Main()
         {
+            /*
+            using(var db = new MyDbContext())
+            {
+                
+                foreach (var pc in db.Users.ToList())
+                {
+                    Console.WriteLine(pc);
+                }
+                
+
+
+
+                    var us = new User
+                {
+                    Name = "Clara",
+                    Email = "clara@gmail.com",
+                    CVR = "109876543",
+                    Category = "Forretning",
+                    PhoneNumber = "42345677"
+                };
+                var us2 = new User
+                {
+                Name = "Heja",
+                Email = "Heja@gmail.com",
+                CVR = "098765432",
+                Category = "Forretning",
+                PhoneNumber = "42336789"
+                };
+                db.Users.Add(us);
+                db.Users.Add(us2);
+                db.RemoveRange(us);
+                db.SaveChanges();
+            }*/
+
+
             MyDbContext db = new MyDbContext();
 
             
@@ -26,7 +61,7 @@ namespace DAB_2_Solution_grp5.Data
                 SeedData.SeedDatabase();
             }
             Console.WriteLine("1");
-            var facility1 = db.facilities.ToList();
+            var facility1 = db.Facilities.ToList();
             Console.WriteLine("2");
             foreach (var i in facility1)
             {
@@ -82,7 +117,7 @@ namespace DAB_2_Solution_grp5.Data
         }
         private static void ListAllFacilities(MyDbContext db)
         {
-            var fac = db.facilities.Include(b => b.FacilityId).ToList();
+            var fac = db.Facilities.Include(b => b.FacilityId).ToList();
 
             
             {
@@ -92,7 +127,7 @@ namespace DAB_2_Solution_grp5.Data
 
         private static void ListAllUsers(MyDbContext db)
         {
-            foreach (var user in db.users)
+            foreach (var user in db.Users)
             {
                 Console.WriteLine(user.UserId);
             }
@@ -100,7 +135,7 @@ namespace DAB_2_Solution_grp5.Data
 
         private static void ListAllActivities(MyDbContext db)
         {
-            foreach (var pc in db.activities.Include(p => p.Bookings).ToList())
+            foreach (var pc in db.Activities.Include(p => p.Bookings).ToList())
             {
                 Console.WriteLine(pc);
             }
