@@ -13,7 +13,7 @@ namespace DAB_2_Solution_grp5.Data
         //public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=127.0.0.1,1433;Database=DAB2;User Id=sa;Password=Rasm223j.;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source=127.0.0.1,1433;Database=DAB2_1;User Id=sa;Password=Rasm223j.;TrustServerCertificate=True");
         }
 
         public DbSet<Facility> Facilities { get; set; }
@@ -21,16 +21,18 @@ namespace DAB_2_Solution_grp5.Data
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Personnel> Personnels { get; set; }
         public DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Does_Maintenance> Does_Maintenances { get; set; }
 
 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Profile
+            // Citizen
             modelBuilder.Entity<Citizen>().HasKey(a => a.CitizenId);
 
-            modelBuilder.Entity<Citizen>().HasData(new Citizen { CitizenId = 2022, Name = "Clara", Email = "Clara@.com", CVR = "109812732123", Category = "forretning", PhoneNumber = "123959214" });
+            
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             

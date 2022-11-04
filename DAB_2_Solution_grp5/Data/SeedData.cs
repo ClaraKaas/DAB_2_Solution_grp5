@@ -93,8 +93,8 @@ namespace DAB_2_Solution_grp5.Data
                 PhoneNumber = "42336789"
             };
 
-            db.Add(Profile1);
-            db.Add(Profile2);
+            db.Add(Citizen1);
+            db.Add(Citizen2);
 
 
             Personnel Personnel1 = new Personnel()

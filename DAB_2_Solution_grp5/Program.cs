@@ -13,19 +13,10 @@ namespace DAB_2_Solution_grp5.Data
     {
         static void Main()
         {
-            /*
-            using(var db = new MyDbContext())
+            MyDbContext db = new MyDbContext();
+
             {
-                
-                foreach (var pc in db.Users.ToList())
-                {
-                    Console.WriteLine(pc);
-                }
-                
-
-
-
-                    var us = new User
+                /*var cit = new Citizen
                 {
                     Name = "Clara",
                     Email = "clara@gmail.com",
@@ -33,113 +24,141 @@ namespace DAB_2_Solution_grp5.Data
                     Category = "Forretning",
                     PhoneNumber = "42345677"
                 };
-                var us2 = new User
+                var cit2 = new Citizen
                 {
-                Name = "Heja",
-                Email = "Heja@gmail.com",
-                CVR = "098765432",
-                Category = "Forretning",
-                PhoneNumber = "42336789"
+                    Name = "Heja",
+                    Email = "Heja@gmail.com",
+                    CVR = "098765432",
+                    Category = "Forretning",
+                    PhoneNumber = "42336789"
                 };
-                db.Users.Add(us);
-                db.Users.Add(us2);
-                db.RemoveRange(us);
+                db.Citizens.Add(cit);
+                db.Citizens.Add(cit2);
                 db.SaveChanges();
             }*/
 
 
-            MyDbContext db = new MyDbContext();
 
-            
 
-            Console.WriteLine("Start");
 
-            System.Console.WriteLine("Should we seed data? Y/n");
-            ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
-            if (consoleKeyInfo.KeyChar == 'Y')
-            {
-                SeedData.SeedDatabase();
+                Console.WriteLine("Start");
+
+                System.Console.WriteLine("Should we seed data? Y/n");
+                ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+                if (consoleKeyInfo.KeyChar == 'Y')
+                {
+                    SeedData.SeedDatabase();
+                }
+
+
+                Console.WriteLine("\n" + "Vis Opgave(a) Opgave(b), Opgave(c)");
+                consoleKeyInfo = Console.ReadKey();
+                if (consoleKeyInfo.KeyChar == 'a' || consoleKeyInfo.KeyChar == 'b' || consoleKeyInfo.KeyChar == 'c')
+                {
+                    VaelgOpgave(db, consoleKeyInfo.KeyChar);
+                }
+                Console.WriteLine("\n" + "Slut");
+
+
+
+
+
             }
-            Console.WriteLine("1");
-            var facility1 = db.Facilities.ToList();
-            Console.WriteLine("2");
-            foreach (var i in facility1)
-            {
-                Console.WriteLine(string.Join(System.Environment.NewLine, facility1));
-            }
-                Console.WriteLine("3");
-            //    foreach (var facility in facilitylist)   
-            //Console.WriteLine(facility.FacilityId);
+        }
 
-            System.Console.WriteLine("\n" + "Show all products Y/n" );
+            static void VaelgOpgave(MyDbContext db, char c)
+            { 
+                 switch (c)
+                {
+                    case 'a':
+                        OpgaveA(db);
+                        break;
+
+                    case 'b':
+                        OpgaveB(db);
+                        break;
+
+                    case 'c':
+                        OpgaveC(db);
+                        break;
+
+                    
+                }
+            }
+
+            static void OpgaveA(MyDbContext db)
+
+            {
+                foreach (var fac in db.Facilities)
+                {
+                    Console.WriteLine(fac.Name + " har addressen" + fac.Address);
+                }
+            }
+
+            static void OpgaveB(MyDbContext db)
+
+            {
+                    var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
+                Console.WriteLine("\nListe af Faciliteter \n");
+                foreach (var fac in ListOfFacilitiesSorted)
+                {
+                
+                    Console.WriteLine(fac.Name + " " + fac.Address + " " + fac.Type);
+                }
+            }
+            static void OpgaveC(MyDbContext db)
+
+            {       
+                    var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
+
+            var n = db.Bookings
+                .Include(book => book.Facility.Name)
+                //.ThenInclude(fac => fac.Name)
+                .Include(book => book.Citizen.Name)
+                //.ThenInclude(cit => cit.Name)
+                .Include(book => book.Activity.Time)
+                //.ThenInclude(act => act.Time)
+                .ToList();
+
+                foreach (var list in n)
+                {
+                    Console.WriteLine(list.Citizen.Name + list.Facility.Name + list.Activity.Time);
+                }
+            }
+
+            /*
+                        private static void ListAllFacilities(MyDbContext db)
+                        {
+                            var fac = db.Facilities.Include(b => b.FacilityId).ToList();
+
+
+                            {
+                                Console.WriteLine("Her er alle" + fac ) ;
+                            }
+                        }
+
+                        private static void ListAllCitizen(MyDbContext db)
+                        {
+                            foreach (var user in db.Citizens)
+                            {
+                                Console.WriteLine(user.CitizenId);
+                            }
+                        }
+
+                        private static void ListAllActivities(MyDbContext db)
+                        {
+                            foreach (var pc in db.Activities.Include(p => p.Bookings).ToList())
+                            {
+                                Console.WriteLine(pc);
+                            }
+
+        System.Console.WriteLine("\n" + "Show all products Y/n" );
             consoleKeyInfo = Console.ReadKey();
             if (consoleKeyInfo.KeyChar == 'Y')
             {
                 ShowAllData(db, 'X');
             }
-            System.Console.WriteLine("\n" + "List all Facilities(F), Citizen(U), Activities(A)");
-            consoleKeyInfo = Console.ReadKey();
-            if (consoleKeyInfo.KeyChar == 'F' || consoleKeyInfo.KeyChar == 'A' || consoleKeyInfo.KeyChar == 'U')
-            {
-                ShowAllData(db, consoleKeyInfo.KeyChar);
-            }
-            Console.WriteLine("\n" + "Slut");
-
-
-            
-
-            
+                        }*/
         }
-
-
-        private static void ShowAllData(MyDbContext db, char c)
-        { 
-             switch (c)
-            {
-                case 'X':
-                    ListAllFacilities(db);
-                    ListAllCitizen(db);
-                    ListAllActivities(db);
-                    break;
-
-                case 'F':
-                    ListAllFacilities(db);
-                    break;
-
-                case 'U':
-                    ListAllCitizen(db);
-                    break;
-
-                case 'A':
-                    ListAllActivities(db);
-                    break;
-            }
-        }
-        private static void ListAllFacilities(MyDbContext db)
-        {
-            var fac = db.Facilities.Include(b => b.FacilityId).ToList();
-
-            
-            {
-                Console.WriteLine("Her er alle" + fac ) ;
-            }
-        }
-
-        private static void ListAllCitizen(MyDbContext db)
-        {
-            foreach (var user in db.Citizens)
-            {
-                Console.WriteLine(user.CitizenId);
-            }
-        }
-
-        private static void ListAllActivities(MyDbContext db)
-        {
-            foreach (var pc in db.Activities.Include(p => p.Bookings).ToList())
-            {
-                Console.WriteLine(pc);
-            }
-        }
-
     }
-}
+        
