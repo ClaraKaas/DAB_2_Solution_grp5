@@ -72,7 +72,7 @@ namespace DAB_2_Solution_grp5.Data
             db.Add(Activity2);
 
 
-            User User1 = new User()
+            User Profile1 = new User()
             {
     
                 Name = "Clara",
@@ -83,7 +83,7 @@ namespace DAB_2_Solution_grp5.Data
             };
 
 
-            User User2 = new User()
+            User Profile2 = new User()
             {
              
                 Name = "Heja",
@@ -93,8 +93,8 @@ namespace DAB_2_Solution_grp5.Data
                 PhoneNumber = "42336789"
             };
 
-            db.Add(User1);
-            db.Add(User2);
+            db.Add(Profile1);
+            db.Add(Profile2);
 
 
             Personnel Personnel1 = new Personnel()
