@@ -17,7 +17,7 @@ namespace DAB_2_Solution_grp5.Data
         }
 
         public DbSet<Facility> Facilities { get; set; }
-        public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Citizen> Citizens { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Personnel> Personnels { get; set; }
         public DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
@@ -28,9 +28,9 @@ namespace DAB_2_Solution_grp5.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Profile
-            modelBuilder.Entity<Profile>().HasKey(a => a.ProfileId);
+            modelBuilder.Entity<Citizen>().HasKey(a => a.CitizenId);
 
-            modelBuilder.Entity<Profile>().HasData(new Profile { ProfileId = 2022, Name = "Clara", Email = "Clara@.com", CVR = "109812732123", Category = "forretning", PhoneNumber = "123959214" });
+            modelBuilder.Entity<Citizen>().HasData(new Citizen { CitizenId = 2022, Name = "Clara", Email = "Clara@.com", CVR = "109812732123", Category = "forretning", PhoneNumber = "123959214" });
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             
@@ -45,9 +45,9 @@ namespace DAB_2_Solution_grp5.Data
 
             // Booking
             modelBuilder.Entity<Booking>()
-                .HasOne(ba => ba.Profile)
+                .HasOne(ba => ba.Citizen)
                 .WithMany(b => b.Bookings)
-                .HasForeignKey(ba => ba.ProfileId);
+                .HasForeignKey(ba => ba.CitizenId);
             modelBuilder.Entity<Booking>()
                 .HasOne(ba => ba.Activity)
                 .WithMany(a => a.Bookings)

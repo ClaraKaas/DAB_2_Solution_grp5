@@ -77,7 +77,7 @@ namespace DAB_2_Solution_grp5.Data
             {
                 ShowAllData(db, 'X');
             }
-            System.Console.WriteLine("\n" + "List all Facilities(F), Profile(U), Activities(A)");
+            System.Console.WriteLine("\n" + "List all Facilities(F), Citizen(U), Activities(A)");
             consoleKeyInfo = Console.ReadKey();
             if (consoleKeyInfo.KeyChar == 'F' || consoleKeyInfo.KeyChar == 'A' || consoleKeyInfo.KeyChar == 'U')
             {
@@ -98,7 +98,7 @@ namespace DAB_2_Solution_grp5.Data
             {
                 case 'X':
                     ListAllFacilities(db);
-                    ListAllProfile(db);
+                    ListAllCitizen(db);
                     ListAllActivities(db);
                     break;
 
@@ -107,7 +107,7 @@ namespace DAB_2_Solution_grp5.Data
                     break;
 
                 case 'U':
-                    ListAllProfile(db);
+                    ListAllCitizen(db);
                     break;
 
                 case 'A':
@@ -125,11 +125,11 @@ namespace DAB_2_Solution_grp5.Data
             }
         }
 
-        private static void ListAllProfile(MyDbContext db)
+        private static void ListAllCitizen(MyDbContext db)
         {
-            foreach (var user in db.Profiles)
+            foreach (var user in db.Citizens)
             {
-                Console.WriteLine(user.ProfileId);
+                Console.WriteLine(user.CitizenId);
             }
         }
 

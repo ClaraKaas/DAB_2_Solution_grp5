@@ -72,7 +72,7 @@ namespace DAB_2_Solution_grp5.Data
             db.Add(Activity2);
 
 
-            Profile Profile1 = new Profile()
+            Citizen Citizen1 = new Citizen()
             {
     
                 Name = "Clara",
@@ -83,7 +83,7 @@ namespace DAB_2_Solution_grp5.Data
             };
 
 
-            Profile Profile2 = new Profile()
+            Citizen Citizen2 = new Citizen()
             {
              
                 Name = "Heja",
