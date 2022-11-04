@@ -72,7 +72,7 @@ namespace DAB_2_Solution_grp5.Data
             db.Add(Activity2);
 
 
-            User Profile1 = new User()
+            Profile Profile1 = new Profile()
             {
     
                 Name = "Clara",
@@ -83,7 +83,7 @@ namespace DAB_2_Solution_grp5.Data
             };
 
 
-            User Profile2 = new User()
+            Profile Profile2 = new Profile()
             {
              
                 Name = "Heja",
