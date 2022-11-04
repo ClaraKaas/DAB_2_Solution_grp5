@@ -15,8 +15,8 @@ namespace DAB_2_Solution_grp5.Models
         public int ActivityId { get; set; }
         public Activity Activity { get; set; }
 
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int ProfileId { get; set; }
+        public Profile Profile { get; set; }
 
         public int FacilityId { get; set; }
         public Facility Facility { get; set; }
