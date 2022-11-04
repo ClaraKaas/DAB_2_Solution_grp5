@@ -6,6 +6,7 @@ using DAB_2_Solution_grp5.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.ConstrainedExecution;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using System.Net.Sockets;
 
 namespace DAB_2_Solution_grp5.Data
 {
@@ -106,6 +107,29 @@ namespace DAB_2_Solution_grp5.Data
                     Console.WriteLine(fac.Name + " " + fac.Address + " " + fac.Type);
                 }
             }
+
+
+        static void Opgavec(MyDbContext db)
+        {
+            var bookedfacility = from Booking in db.Set<Booking>()
+                                    join Facility in db.Set<Facility>() on Booking.Facility.Name + Booking equals Facility.Name
+                                    join Citizen in db.Set<Citizen>() on Booking.Citizen.Name equals Citizen.Name
+                                    join Activity in db.Set<Activity>() on Booking.Activity.Time equals Activity.Time
+
+                                    select new { Facility.Name, Citizen.Name, Activity.Time };
+
+
+
+
+
+
+
+
+
+
+
+/*
+
             static void OpgaveC(MyDbContext db)
 
             {       
@@ -160,5 +184,7 @@ namespace DAB_2_Solution_grp5.Data
             }
                         }*/
         }
+
     }
-        
+}
+
