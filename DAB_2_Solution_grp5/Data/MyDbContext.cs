@@ -29,7 +29,8 @@ namespace DAB_2_Solution_grp5.Data
         {
             // User
             modelBuilder.Entity<User>().HasKey(a => a.UserId);
-            
+
+            modelBuilder.Entity<User>().HasData(new User { UserId = 2022, Name = "Clara", Email = "Clara@.com", CVR = "109812732123", Category = "forretning", PhoneNumber = "123959214" });
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             
