@@ -52,7 +52,7 @@ namespace DAB_2_Solution_grp5.Data
                 }
 
 
-                Console.WriteLine("\n" + "Vis Opgave(a) Opgave(b), Opgave(c)");
+                Console.WriteLine("\n" + "Vis Opgave2_1(a) Opgave2_2(b), Opgave2_3(c)");
                 consoleKeyInfo = Console.ReadKey();
                 if (consoleKeyInfo.KeyChar == 'a' || consoleKeyInfo.KeyChar == 'b' || consoleKeyInfo.KeyChar == 'c')
                 {
@@ -72,22 +72,22 @@ namespace DAB_2_Solution_grp5.Data
                  switch (c)
                 {
                     case 'a':
-                        OpgaveA(db);
+                        Opgave2_1(db);
                         break;
 
                     case 'b':
-                        OpgaveB(db);
+                        Opgave2_2(db);
                         break;
 
                     case 'c':
-                        OpgaveC(db);
+                        Opgave2_3(db);
                         break;
 
                     
                 }
             }
 
-            static void OpgaveA(MyDbContext db)
+            static void Opgave2_1(MyDbContext db)
 
             {
                 foreach (var fac in db.Facilities)
@@ -96,7 +96,7 @@ namespace DAB_2_Solution_grp5.Data
                 }
             }
 
-            static void OpgaveB(MyDbContext db)
+            static void Opgave2_2(MyDbContext db)
 
             {
                     var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
@@ -109,14 +109,14 @@ namespace DAB_2_Solution_grp5.Data
             }
 
 
-        static void OpgaveC(MyDbContext db)
+        static void Opgave2_3(MyDbContext db)
         {
 
 
 
 
             var bookedfacility = from Booking in db.Set<Booking>()
-                                    join Facility in db.Set<Facility>() on Booking.Facility.Name + Booking equals Facility.Name
+                                    join Facility in db.Set<Facility>() on Booking.Facility.Name equals Facility.Name
                                     join Citizen in db.Set<Citizen>() on Booking.Citizen.Namee equals Citizen.Namee
                                     join Activity in db.Set<Activity>() on Booking.Activity.Time equals Activity.Time
 
