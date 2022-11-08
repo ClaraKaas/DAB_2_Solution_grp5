@@ -21,8 +21,7 @@ namespace DAB_2_Solution_grp5.Data
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Personnel> Personnels { get; set; }
         public DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Does_Maintenance> Does_Maintenances { get; set; }
+        
 
 
 
@@ -35,46 +34,38 @@ namespace DAB_2_Solution_grp5.Data
             
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
-            
+
+            modelBuilder.Entity<Activity>()
+                .HasOne(ba => ba.Citizen)
+                .WithMany(b => b.Activities)
+                .HasForeignKey(ba => ba.CitizenId);
+
+            modelBuilder.Entity<Activity>()
+                .HasOne(ba => ba.Facility)
+                .WithMany(a => a.Activities)
+                .HasForeignKey(ba => ba.FacilityId);
+
             // Facility
             modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
-            
+
+            modelBuilder.Entity<Facility>()
+                .HasOne(ba => ba.MaintenanceLog)
+                .WithOne(a => a.Facility)
+                .HasForeignKey<MaintenanceLog>(ba => ba.FacilityId);
+
             // MaintenanceLog
             modelBuilder.Entity<MaintenanceLog>().HasKey(b => b.MaintenanceId);
+
+            
             
             // Personnel
             modelBuilder.Entity<Personnel>().HasKey(b => b.PersId);
 
-            // Booking
-            modelBuilder.Entity<Booking>()
-                .HasOne(ba => ba.Citizen)
-                .WithMany(b => b.Bookings)
-                .HasForeignKey(ba => ba.CitizenId);
-            modelBuilder.Entity<Activity>()
-                .HasOne(ba => ba.Booking)
-                .WithOne(a => a.Activity)
-                .HasForeignKey<Booking>(ba => ba.ActivityId);
-            modelBuilder.Entity<Booking>()
-                .HasOne(ba => ba.Facility)
-                .WithMany(a => a.Bookings)
-                .HasForeignKey(ba => ba.FacilityId);
+        
+            
             
 
-            // Does_Maintenance
-            modelBuilder.Entity<Does_Maintenance>()
-                .HasOne(ba => ba.Facility)
-                .WithMany(a => a.Does_Maintenances)
-                .HasForeignKey(ba => ba.FacilityId);
-            modelBuilder.Entity<Does_Maintenance>()
-                .HasOne(ba => ba.MaintenanceLog)
-                .WithMany(a => a.Does_Maintenances)
-                .HasForeignKey(ba => ba.MaintenanceId);
-            modelBuilder.Entity<Does_Maintenance>()
-                .HasOne(ba => ba.Personnel)
-                .WithMany(b => b.Does_Maintenances)
-                .HasForeignKey(ba => ba.PersId);
-
-        
+            
 
         }
         

@@ -17,12 +17,15 @@ namespace DAB_2_Solution_grp5.Models
         public string Type { get; set; }
         public string Description { get; set; }
 
-        public string Bookable { get; set; }
+        //public string Bookable { get; set; }
 
-        public string Items { get; set; }
+        //public string Items { get; set; }
 
-        public List<Booking> Bookings { get; set; }
-        public List<Does_Maintenance> Does_Maintenances { get; set; }
+        public List<Activity> Activities { get; set; }
+
+       
+        public MaintenanceLog MaintenanceLog { get; set; }
+        
 
 
     }

@@ -11,14 +11,14 @@ namespace DAB_2_Solution_grp5.Models
     {
         
         public int CitizenId { get; set; }
-        public string Namee { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string CVR { get; set; }
         public string Category { get; set; }
         public string PhoneNumber { get; set; }
 
 
-        public List<Booking> Bookings { get; set; }
+        public List<Activity> Activities { get; set; }
     
     }
 }

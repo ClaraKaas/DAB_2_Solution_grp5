@@ -11,6 +11,9 @@ namespace DAB_2_Solution_grp5.Models
     {
         
         public int PersId { get; set; }
-        public List<Does_Maintenance> Does_Maintenances { get; set; }
+
+
+        // laves om til one to many 
+        public List<MaintenanceLog> MaintenaceLogs { get; set; }
     }
 }
