@@ -50,10 +50,10 @@ namespace DAB_2_Solution_grp5.Data
                 .HasOne(ba => ba.Citizen)
                 .WithMany(b => b.Bookings)
                 .HasForeignKey(ba => ba.CitizenId);
-            modelBuilder.Entity<Booking>()
-                .HasOne(ba => ba.Activity)
-                .WithMany(a => a.Bookings)
-                .HasForeignKey(ba => ba.ActivityId);
+            modelBuilder.Entity<Activity>()
+                .HasOne(ba => ba.Booking)
+                .WithOne(a => a.Activity)
+                .HasForeignKey<Booking>(ba => ba.ActivityId);
             modelBuilder.Entity<Booking>()
                 .HasOne(ba => ba.Facility)
                 .WithMany(a => a.Bookings)

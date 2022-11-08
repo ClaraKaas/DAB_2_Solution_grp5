@@ -17,6 +17,7 @@ namespace DAB_2_Solution_grp5.Models
         public string Category { get; set; }
         public string PhoneNumber { get; set; }
 
+
         public List<Booking> Bookings { get; set; }
     
     }
