@@ -99,7 +99,7 @@ namespace DAB_2_Solution_grp5.Data
             Citizen Citizen1 = new Citizen()
             {
     
-                Name = "Clara",
+                Namee = "Clara",
                 Email = "clara@gmail.com",
                 CVR = "109876543",
                 Category = "Forretning",
@@ -110,7 +110,7 @@ namespace DAB_2_Solution_grp5.Data
             Citizen Citizen2 = new Citizen()
             {
              
-                Name = "Heja",
+                Namee = "Heja",
                 Email = "Heja@gmail.com",
                 CVR = "098765432",
                 Category = "Forretning",

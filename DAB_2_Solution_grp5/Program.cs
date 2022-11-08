@@ -109,14 +109,18 @@ namespace DAB_2_Solution_grp5.Data
             }
 
 
-        static void Opgavec(MyDbContext db)
+        static void OpgaveC(MyDbContext db)
         {
+
+
+
+
             var bookedfacility = from Booking in db.Set<Booking>()
                                     join Facility in db.Set<Facility>() on Booking.Facility.Name + Booking equals Facility.Name
-                                    join Citizen in db.Set<Citizen>() on Booking.Citizen.Name equals Citizen.Name
+                                    join Citizen in db.Set<Citizen>() on Booking.Citizen.Namee equals Citizen.Namee
                                     join Activity in db.Set<Activity>() on Booking.Activity.Time equals Activity.Time
 
-                                    select new { Facility.Name, Citizen.Name, Activity.Time };
+                                    select new { Facility.Name, Citizen.Namee, Activity.Time };
 
 
 

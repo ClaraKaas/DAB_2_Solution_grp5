@@ -11,7 +11,7 @@ namespace DAB_2_Solution_grp5.Models
     {
         
         public int CitizenId { get; set; }
-        public string Name { get; set; }
+        public string Namee { get; set; }
         public string Email { get; set; }
         public string CVR { get; set; }
         public string Category { get; set; }
