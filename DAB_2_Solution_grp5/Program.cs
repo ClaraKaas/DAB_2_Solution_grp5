@@ -52,7 +52,7 @@ namespace DAB_2_Solution_grp5.Data
                 }
 
 
-                Console.WriteLine("\n" + "Vis Opgave(a) Opgave(b), Opgave(c)");
+                Console.WriteLine("\n" + "Vis Opgave2.1(a) Opgave2.2(b), Opgave2.3(c)");
                 consoleKeyInfo = Console.ReadKey();
                 if (consoleKeyInfo.KeyChar == 'a' || consoleKeyInfo.KeyChar == 'b' || consoleKeyInfo.KeyChar == 'c')
                 {
@@ -72,22 +72,22 @@ namespace DAB_2_Solution_grp5.Data
                  switch (c)
                 {
                     case 'a':
-                        OpgaveA(db);
+                        Opgave_2_1(db);
                         break;
 
                     case 'b':
-                        OpgaveB(db);
+                        Opgave_2_2(db);
                         break;
 
                     case 'c':
-                        OpgaveC(db);
+                        Opgave_2_3(db);
                         break;
 
                     
                 }
             }
 
-            static void OpgaveA(MyDbContext db)
+            static void Opgave_2_1(MyDbContext db)
 
             {
                 foreach (var fac in db.Facilities)
@@ -96,7 +96,7 @@ namespace DAB_2_Solution_grp5.Data
                 }
             }
 
-            static void OpgaveB(MyDbContext db)
+            static void Opgave_2_2(MyDbContext db)
 
             {
                     var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
@@ -109,80 +109,83 @@ namespace DAB_2_Solution_grp5.Data
             }
 
 
-        static void Opgavec(MyDbContext db)
+        static void Opgave_2_3(MyDbContext db)
         {
-            var bookedfacility = from Booking in db.Set<Booking>()
-                                    join Facility in db.Set<Facility>() on Booking.Facility.Name + Booking equals Facility.Name
-                                    join Citizen in db.Set<Citizen>() on Booking.Citizen.Name equals Citizen.Name
-                                    join Activity in db.Set<Activity>() on Booking.Activity.Time equals Activity.Time
+            //var bookedfacility = from Booking in db.Set<Booking>()
+            
 
-                                    select new { Facility.Name, Citizen.Name, Activity.Time };
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-            static void OpgaveC(MyDbContext db)
-
-            {       
-                    var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
-
-            var n = db.Bookings
-                .Include(book => book.Facility.Name)
-                //.ThenInclude(fac => fac.Name)
-                .Include(book => book.Citizen.Name)
-                //.ThenInclude(cit => cit.Name)
-                .Include(book => book.Activity.Time)
-                //.ThenInclude(act => act.Time)
-                .ToList();
-
-                foreach (var list in n)
-                {
-                    Console.WriteLine(list.Citizen.Name + list.Facility.Name + list.Activity.Time);
-                }
+            
+            var BookingList = db.Bookings.ToList();
+            foreach (var book in BookingList)
+            {
+                Console.WriteLine(
+                    $"{book.FacilityId} | {db.Citizens.First(u => u.CitizenId == book.CitizenId).Name}");
             }
+
+
+
+
+
+
+
+
+
 
             /*
-                        private static void ListAllFacilities(MyDbContext db)
-                        {
-                            var fac = db.Facilities.Include(b => b.FacilityId).ToList();
 
+                        static void OpgaveC(MyDbContext db)
 
+                        {       
+                                var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
+
+                        var n = db.Bookings
+                            .Include(book => book.Facility.Name)
+                            //.ThenInclude(fac => fac.Name)
+                            .Include(book => book.Citizen.Name)
+                            //.ThenInclude(cit => cit.Name)
+                            .Include(book => book.Activity.Time)
+                            //.ThenInclude(act => act.Time)
+                            .ToList();
+
+                            foreach (var list in n)
                             {
-                                Console.WriteLine("Her er alle" + fac ) ;
+                                Console.WriteLine(list.Citizen.Name + list.Facility.Name + list.Activity.Time);
                             }
                         }
 
-                        private static void ListAllCitizen(MyDbContext db)
+                        /*
+                                    private static void ListAllFacilities(MyDbContext db)
+                                    {
+                                        var fac = db.Facilities.Include(b => b.FacilityId).ToList();
+
+
+                                        {
+                                            Console.WriteLine("Her er alle" + fac ) ;
+                                        }
+                                    }
+
+                                    private static void ListAllCitizen(MyDbContext db)
+                                    {
+                                        foreach (var user in db.Citizens)
+                                        {
+                                            Console.WriteLine(user.CitizenId);
+                                        }
+                                    }
+
+                                    private static void ListAllActivities(MyDbContext db)
+                                    {
+                                        foreach (var pc in db.Activities.Include(p => p.Bookings).ToList())
+                                        {
+                                            Console.WriteLine(pc);
+                                        }
+
+                    System.Console.WriteLine("\n" + "Show all products Y/n" );
+                        consoleKeyInfo = Console.ReadKey();
+                        if (consoleKeyInfo.KeyChar == 'Y')
                         {
-                            foreach (var user in db.Citizens)
-                            {
-                                Console.WriteLine(user.CitizenId);
-                            }
+                            ShowAllData(db, 'X');
                         }
-
-                        private static void ListAllActivities(MyDbContext db)
-                        {
-                            foreach (var pc in db.Activities.Include(p => p.Bookings).ToList())
-                            {
-                                Console.WriteLine(pc);
-                            }
-
-        System.Console.WriteLine("\n" + "Show all products Y/n" );
-            consoleKeyInfo = Console.ReadKey();
-            if (consoleKeyInfo.KeyChar == 'Y')
-            {
-                ShowAllData(db, 'X');
-            }
-                        }*/
+                                    }*/
         }
 
     }
