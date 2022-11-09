@@ -14,6 +14,6 @@ namespace DAB_2_Solution_grp5.Models
 
 
         // laves om til one to many 
-        public List<MaintenanceLog> MaintenaceLogs { get; set; }
+        public List<MaintenanceLog> MaintenaceLogs { get; set; } 
     }
 }

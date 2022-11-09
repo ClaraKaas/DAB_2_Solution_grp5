@@ -21,10 +21,10 @@ namespace DAB_2_Solution_grp5.Models
 
         //public string Items { get; set; }
 
-        public List<Activity> Activities { get; set; }
+        public List<Activity> Activities { get; set; } 
 
-       
-        public MaintenanceLog MaintenanceLog { get; set; }
+
+        public MaintenanceLog MaintenanceLog { get; set; } 
         
 
 

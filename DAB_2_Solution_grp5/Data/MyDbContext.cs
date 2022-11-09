@@ -28,13 +28,21 @@ namespace DAB_2_Solution_grp5.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /*
             // Citizen
             modelBuilder.Entity<Citizen>().HasKey(a => a.CitizenId);
-
-            
+            // Personnel
+            modelBuilder.Entity<Personnel>().HasKey(b => b.PersId);
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
+            // MaintenanceLog
+            modelBuilder.Entity<MaintenanceLog>().HasKey(b => b.MaintenanceId);
 
+            // Facility
+            modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
+            */
+        
+            // Activity
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)
                 .WithMany(b => b.Activities)
@@ -46,7 +54,6 @@ namespace DAB_2_Solution_grp5.Data
                 .HasForeignKey(ba => ba.FacilityId);
 
             // Facility
-            modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
 
             modelBuilder.Entity<Facility>()
                 .HasOne(ba => ba.MaintenanceLog)
@@ -54,15 +61,12 @@ namespace DAB_2_Solution_grp5.Data
                 .HasForeignKey<MaintenanceLog>(ba => ba.FacilityId);
 
             // MaintenanceLog
-            modelBuilder.Entity<MaintenanceLog>().HasKey(b => b.MaintenanceId);
-
             modelBuilder.Entity<MaintenanceLog>()
                 .HasOne(ba => ba.Personnel)
                 .WithMany(a => a.MaintenaceLogs)
                 .HasForeignKey(ba => ba.PersId);
             
-            // Personnel
-            modelBuilder.Entity<Personnel>().HasKey(b => b.PersId);
+            
 
             
 

@@ -123,7 +123,7 @@ namespace DAB_2_Solution_grp5.Data
                                 $"{bookings.ActivityId} | {db.Citizens.First(u => u.CitizenId == bookings.CitizenId).Namee}");
                         }
                         */
-
+            /*
             var Bookedfacility = from Booking in db.Set<Booking>()
                                  join Facility in db.Set<Facility>() on Booking.FacilityId equals Facility.FacilityId
                                  join Citizen in db.Set<Citizen>() on Booking.CitizenId equals Citizen.CitizenId
@@ -144,7 +144,7 @@ namespace DAB_2_Solution_grp5.Data
                 Console.WriteLine("\n");
 
 
-            }
+            }*/
 
 
 

@@ -28,10 +28,11 @@ namespace DAB_2_Solution_grp5.Data
 
             Facility AarhusStrand = new Facility()
             {
+                FacilityId = 1,
                 Name = "AarhusStrand",
                 Address = "Strand 9",
                 Type = "Privat",
-                Description = "God plads",
+                Description = "God plads"
                 //Bookable = "Ja",
                 //Items = "offentlig toillet"
 
@@ -39,57 +40,58 @@ namespace DAB_2_Solution_grp5.Data
 
             Facility Navitas = new Facility()
             {
-
+                FacilityId = 2,
                 Name = "Navitas",
                 Address = "Møllevej 15",
                 Type = "forretning",
-                Description = "Den ligger ved haven kanten",
+                Description = "Den ligger ved haven kanten"
                 //Bookable = "Ja",
                 //Items = "Bord og stoler"
 
             };
             Facility AU = new Facility()
             {
-
+                FacilityId = 3,
                 Name = "Aarhus Universitet",
                 Address = "Finlandsgade 22",
                 Type = "forretning",
-                Description = "Skole",
+                Description = "Skole"
                 //Bookable = "Ja",
                 //Items = "Bord og stoler"
 
             };
             Facility StorcenterNord  = new Facility()
             {
-
+                FacilityId= 4,
                 Name = "Storcenter Nord",
                 Address = "Finlandsgade 15",
                 Type = "Shopping",
-                Description = "Ligger i aarhus N",
+                Description = "Ligger i aarhus N"
                 //Bookable = "Ja",
                 //Items = "Butikker"
 
             };
+            Console.WriteLine("Before Add");
             db.Add(AarhusStrand);
             db.Add(Navitas);
             db.Add(AU);
             db.Add(StorcenterNord);
-
+            Console.WriteLine("After Add");
             Activity Activity1 = new Activity()
             {
-
+                ActivityId = 1,
                 Time = DateTime.Now.Add(TimeSpan.FromHours(10)),
                 Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
-                Participants = 5,
+                Participants = 5
 
 
             };
             Activity Activity2 = new Activity()
             {
-      
+                ActivityId = 2,
                 Time = DateTime.Now.Add(TimeSpan.FromHours(15)),
                 Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
-                Participants = 10,
+                Participants = 10
 
             };
             db.Add(Activity1);
@@ -98,8 +100,8 @@ namespace DAB_2_Solution_grp5.Data
 
             Citizen Citizen1 = new Citizen()
             {
-    
-                Name = "Clara",
+                CitizenId = 1,
+                Namee = "Clara",
                 Email = "clara@gmail.com",
                 CVR = "109876543",
                 Category = "Forretning",
@@ -109,8 +111,8 @@ namespace DAB_2_Solution_grp5.Data
 
             Citizen Citizen2 = new Citizen()
             {
-             
-                Name = "Heja",
+                CitizenId = 2,
+                Namee = "Heja",
                 Email = "Heja@gmail.com",
                 CVR = "098765432",
                 Category = "Forretning",
@@ -122,11 +124,13 @@ namespace DAB_2_Solution_grp5.Data
 
 
             Personnel Personnel1 = new Personnel()
-            {    };
+            {  
+                PersId = 1
+            };
 
             Personnel Personnel2 = new Personnel()
             {
-
+                PersId = 2
             };
 
             db.Add(Personnel1);
@@ -134,18 +138,18 @@ namespace DAB_2_Solution_grp5.Data
 
             MaintenanceLog MaintenanceLog1 = new MaintenanceLog()
             {
-
+                MaintenanceId = 1,
                 Description = "Ved ikke",
-                Date = DateTime.Now.Add(TimeSpan.FromHours(15)),
+                Date = DateTime.Now.Add(TimeSpan.FromHours(15))
 
             };
 
             MaintenanceLog MaintenanceLog2 = new MaintenanceLog()
             {
 
-     
+                MaintenanceId = 2,
                 Description = "gegikvep",
-                Date = DateTime.Now.Add(TimeSpan.FromHours(15)),
+                Date = DateTime.Now.Add(TimeSpan.FromHours(15))
 
             };
             db.Add(MaintenanceLog1);
