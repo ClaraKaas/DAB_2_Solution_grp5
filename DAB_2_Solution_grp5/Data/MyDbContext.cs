@@ -13,7 +13,7 @@ namespace DAB_2_Solution_grp5.Data
         //public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=127.0.0.1;User ID=sa;Password=Rasm223j.    ;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer("Data Source=127.0.0.1, 1433; Database=DAB2_1; User ID=sa;Password=Rasm223j. ;TrustServerCertificate=true; ApplicationIntent=ReadWrite;");
         }
 
         public DbSet<Facility>? Facilities { get; set; }
