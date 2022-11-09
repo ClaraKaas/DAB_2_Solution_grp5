@@ -71,12 +71,12 @@ namespace DAB_2_Solution_grp5.Data
                 //Items = "Butikker"
 
             };
-            Console.WriteLine("Before Add");
+            
             db.Add(AarhusStrand);
             db.Add(Navitas);
             db.Add(AU);
             db.Add(StorcenterNord);
-            Console.WriteLine("After Add");
+            
             Activity Activity1 = new Activity()
             {
                 //ActivityId = 1,
