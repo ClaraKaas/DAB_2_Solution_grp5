@@ -17,40 +17,14 @@ namespace DAB_2_Solution_grp5.Data
             MyDbContext db = new MyDbContext();
 
             {
-                /*var cit = new Citizen
-                {
-                    Name = "Clara",
-                    Email = "clara@gmail.com",
-                    CVR = "109876543",
-                    Category = "Forretning",
-                    PhoneNumber = "42345677"
-                };
-                var cit2 = new Citizen
-                {
-                    Name = "Heja",
-                    Email = "Heja@gmail.com",
-                    CVR = "098765432",
-                    Category = "Forretning",
-                    PhoneNumber = "42336789"
-                };
-                db.Citizens.Add(cit);
-                db.Citizens.Add(cit2);
-                db.SaveChanges();
-            }*/
-
-
-
-
-
                 Console.WriteLine("Start");
 
-                System.Console.WriteLine("Should we seed data? Y/n");
+                Console.WriteLine("Should we seed data? Y/n");
                 ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
                 if (consoleKeyInfo.KeyChar == 'Y')
                 {
                     SeedData.SeedDatabase();
                 }
-
 
                 Console.WriteLine("\n" + "Vis Opgave2_1(a) Opgave2_2(b), Opgave2_3(c)");
                 consoleKeyInfo = Console.ReadKey();
@@ -59,16 +33,12 @@ namespace DAB_2_Solution_grp5.Data
                     VaelgOpgave(db, consoleKeyInfo.KeyChar);
                 }
 
-
                 else
                 {
                     return;
                 }
                 Console.WriteLine("\n" + "Slut");
-
-
-
-            }
+                }
         }
 
         static void VaelgOpgave(MyDbContext db, char c)
@@ -86,13 +56,10 @@ namespace DAB_2_Solution_grp5.Data
                 case 'c':
                     Opgave2_3(db);
                     break;
-
-
             }
         }
 
         static void Opgave2_1(MyDbContext db)
-
         {
             foreach (var fac in db.Facilities)
             {
@@ -101,7 +68,6 @@ namespace DAB_2_Solution_grp5.Data
         }
 
         static void Opgave2_2(MyDbContext db)
-
         {
             var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
             Console.WriteLine("\nListe af Faciliteter \n");
@@ -111,7 +77,6 @@ namespace DAB_2_Solution_grp5.Data
                 Console.WriteLine(fac.Name + " " + fac.Address + " " + fac.Type);
             }
         }
-
 
         static void Opgave2_3(MyDbContext db)
         {
@@ -134,11 +99,11 @@ namespace DAB_2_Solution_grp5.Data
             foreach (var asss in Bookedfacility)
             {
 
-                Console.WriteLine(" Room with Id  " + "\n" + asss.Booking.FacilityId
+                Console.WriteLine(" Room with Id  " + "\n" + .FacilityId
                                   + "is reserved from "
-                                  + asss.Booking.Citizen.Namee
+                                  + Citizen.Namee
                                   + " to "
-                                  + asss.Booking.Activity.Time
+                                  + .Activity.Time
                                   + "\n");
 
                 Console.WriteLine("\n");

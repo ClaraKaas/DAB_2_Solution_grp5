@@ -14,12 +14,12 @@ namespace DAB_2_Solution_grp5.Models
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
-        public Facility FacilityId { get; set; }
+        public int FacilityId { get; set; }
         public Facility Facility { get; set; } 
 
-        // laves om til one to many 
+        
 
-        public Personnel PersId { get; set; }
+        public int PersId { get; set; }
         public Personnel Personnel { get; set; } 
 
     }

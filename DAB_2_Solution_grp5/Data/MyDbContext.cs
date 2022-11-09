@@ -13,22 +13,19 @@ namespace DAB_2_Solution_grp5.Data
         //public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=127.0.0.1,1433;Database=DAB2_1;User Id=sa;Password=Rasm223j.;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Data Source=127.0.0.1;User ID=sa;Password=Rasm223j.    ;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
-        public DbSet<Facility> Facilities { get; set; }
-        public DbSet<Citizen> Citizens { get; set; }
-        public DbSet<Activity> Activities { get; set; }
-        public DbSet<Personnel> Personnels { get; set; }
-        public DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
+        public DbSet<Facility>? Facilities { get; set; }
+        public DbSet<Citizen>? Citizens { get; set; }
+        public DbSet<Activity>? Activities { get; set; }
+        public DbSet<Personnel>? Personnels { get; set; }
+        public DbSet<MaintenanceLog>? MaintenanceLogs { get; set; }
         
-
-
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*
+            
             // Citizen
             modelBuilder.Entity<Citizen>().HasKey(a => a.CitizenId);
             // Personnel
@@ -40,7 +37,7 @@ namespace DAB_2_Solution_grp5.Data
 
             // Facility
             modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
-            */
+            
         
             // Activity
             modelBuilder.Entity<Activity>()
@@ -65,16 +62,6 @@ namespace DAB_2_Solution_grp5.Data
                 .HasOne(ba => ba.Personnel)
                 .WithMany(a => a.MaintenaceLogs)
                 .HasForeignKey(ba => ba.PersId);
-            
-            
-
-            
-
-
-
-
-
-
         }
         
     }

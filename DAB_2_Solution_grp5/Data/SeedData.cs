@@ -28,7 +28,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Facility AarhusStrand = new Facility()
             {
-                FacilityId = 1,
+                //FacilityId = 1,
                 Name = "AarhusStrand",
                 Address = "Strand 9",
                 Type = "Privat",
@@ -40,7 +40,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Facility Navitas = new Facility()
             {
-                FacilityId = 2,
+                //FacilityId = 2,
                 Name = "Navitas",
                 Address = "Møllevej 15",
                 Type = "forretning",
@@ -51,7 +51,7 @@ namespace DAB_2_Solution_grp5.Data
             };
             Facility AU = new Facility()
             {
-                FacilityId = 3,
+                //FacilityId = 3,
                 Name = "Aarhus Universitet",
                 Address = "Finlandsgade 22",
                 Type = "forretning",
@@ -62,7 +62,7 @@ namespace DAB_2_Solution_grp5.Data
             };
             Facility StorcenterNord  = new Facility()
             {
-                FacilityId= 4,
+                //FacilityId= 4,
                 Name = "Storcenter Nord",
                 Address = "Finlandsgade 15",
                 Type = "Shopping",
@@ -79,7 +79,7 @@ namespace DAB_2_Solution_grp5.Data
             Console.WriteLine("After Add");
             Activity Activity1 = new Activity()
             {
-                ActivityId = 1,
+                //ActivityId = 1,
                 Time = DateTime.Now.Add(TimeSpan.FromHours(10)),
                 Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                 Participants = 5
@@ -88,7 +88,7 @@ namespace DAB_2_Solution_grp5.Data
             };
             Activity Activity2 = new Activity()
             {
-                ActivityId = 2,
+                //ActivityId = 2,
                 Time = DateTime.Now.Add(TimeSpan.FromHours(15)),
                 Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                 Participants = 10
@@ -100,7 +100,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Citizen Citizen1 = new Citizen()
             {
-                CitizenId = 1,
+                //CitizenId = 1,
                 Namee = "Clara",
                 Email = "clara@gmail.com",
                 CVR = "109876543",
@@ -111,7 +111,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Citizen Citizen2 = new Citizen()
             {
-                CitizenId = 2,
+                //CitizenId = 2,
                 Namee = "Heja",
                 Email = "Heja@gmail.com",
                 CVR = "098765432",
@@ -125,12 +125,12 @@ namespace DAB_2_Solution_grp5.Data
 
             Personnel Personnel1 = new Personnel()
             {  
-                PersId = 1
+                //PersId = 1
             };
 
             Personnel Personnel2 = new Personnel()
             {
-                PersId = 2
+                //PersId = 2
             };
 
             db.Add(Personnel1);
@@ -138,7 +138,7 @@ namespace DAB_2_Solution_grp5.Data
 
             MaintenanceLog MaintenanceLog1 = new MaintenanceLog()
             {
-                MaintenanceId = 1,
+                //MaintenanceId = 1,
                 Description = "Ved ikke",
                 Date = DateTime.Now.Add(TimeSpan.FromHours(15))
 
@@ -147,7 +147,7 @@ namespace DAB_2_Solution_grp5.Data
             MaintenanceLog MaintenanceLog2 = new MaintenanceLog()
             {
 
-                MaintenanceId = 2,
+                //MaintenanceId = 2,
                 Description = "gegikvep",
                 Date = DateTime.Now.Add(TimeSpan.FromHours(15))
 
@@ -158,7 +158,7 @@ namespace DAB_2_Solution_grp5.Data
 
             Console.WriteLine("Seeding completed successfully!");
 
-            db.SaveChanges();
+            db.SaveChangesAsync();
 
             Console.WriteLine("Changes saved");
 
