@@ -56,16 +56,20 @@ namespace DAB_2_Solution_grp5.Data
             // MaintenanceLog
             modelBuilder.Entity<MaintenanceLog>().HasKey(b => b.MaintenanceId);
 
-            
+            modelBuilder.Entity<MaintenanceLog>()
+                .HasOne(ba => ba.Personnel)
+                .WithMany(a => a.MaintenaceLogs)
+                .HasForeignKey(ba => ba.PersId);
             
             // Personnel
             modelBuilder.Entity<Personnel>().HasKey(b => b.PersId);
 
-        
-            
             
 
-            
+
+
+
+
 
         }
         

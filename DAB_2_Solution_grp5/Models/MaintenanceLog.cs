@@ -19,7 +19,8 @@ namespace DAB_2_Solution_grp5.Models
 
         // laves om til one to many 
 
-        public List<Personnel> Personnels { get; set; }
+        public Personnel PersId { get; set; }
+        public Personnel Personnel { get; set; }
 
     }
 }

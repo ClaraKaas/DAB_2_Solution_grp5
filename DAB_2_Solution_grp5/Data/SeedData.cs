@@ -32,8 +32,8 @@ namespace DAB_2_Solution_grp5.Data
                 Address = "Strand 9",
                 Type = "Privat",
                 Description = "God plads",
-                Bookable = "Ja",
-                Items = "offentlig toillet"
+                //Bookable = "Ja",
+                //Items = "offentlig toillet"
 
             };
 
@@ -44,8 +44,8 @@ namespace DAB_2_Solution_grp5.Data
                 Address = "Møllevej 15",
                 Type = "forretning",
                 Description = "Den ligger ved haven kanten",
-                Bookable = "Ja",
-                Items = "Bord og stoler"
+                //Bookable = "Ja",
+                //Items = "Bord og stoler"
 
             };
             Facility AU = new Facility()
@@ -55,8 +55,8 @@ namespace DAB_2_Solution_grp5.Data
                 Address = "Finlandsgade 22",
                 Type = "forretning",
                 Description = "Skole",
-                Bookable = "Ja",
-                Items = "Bord og stoler"
+                //Bookable = "Ja",
+                //Items = "Bord og stoler"
 
             };
             Facility StorcenterNord  = new Facility()
@@ -66,8 +66,8 @@ namespace DAB_2_Solution_grp5.Data
                 Address = "Finlandsgade 15",
                 Type = "Shopping",
                 Description = "Ligger i aarhus N",
-                Bookable = "Ja",
-                Items = "Butikker"
+                //Bookable = "Ja",
+                //Items = "Butikker"
 
             };
             db.Add(AarhusStrand);
@@ -99,7 +99,7 @@ namespace DAB_2_Solution_grp5.Data
             Citizen Citizen1 = new Citizen()
             {
     
-                Namee = "Clara",
+                Name = "Clara",
                 Email = "clara@gmail.com",
                 CVR = "109876543",
                 Category = "Forretning",
@@ -110,7 +110,7 @@ namespace DAB_2_Solution_grp5.Data
             Citizen Citizen2 = new Citizen()
             {
              
-                Namee = "Heja",
+                Name = "Heja",
                 Email = "Heja@gmail.com",
                 CVR = "098765432",
                 Category = "Forretning",
