@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace DAB_2_Solution_grp5.Migrations
 {
-    public partial class IntialCreate : Migration
+    public partial class intialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -109,6 +108,25 @@ namespace DAB_2_Solution_grp5.Migrations
                         principalTable: "Personnels",
                         principalColumn: "PersId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Citizens",
+                columns: new[] { "CitizenId", "CVR", "Category", "Email", "Namee", "PhoneNumber" },
+                values: new object[,]
+                {
+                    { 2, "109876543", "Forretning", "clara@gmail.com", "Clara", "42345677" },
+                    { 3, "098765432", "Forretning", "Heja@gmail.com", "Heja", "42336789" },
+                    { 7, "12103023031", "Business", "Clara@gmail.com", "Clara", "25252525" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Personnels",
+                column: "PersId",
+                values: new object[]
+                {
+                    1,
+                    2
                 });
 
             migrationBuilder.CreateIndex(

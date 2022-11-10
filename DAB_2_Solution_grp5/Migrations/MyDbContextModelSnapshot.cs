@@ -86,6 +86,35 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.HasKey("CitizenId");
 
                     b.ToTable("Citizens");
+
+                    b.HasData(
+                        new
+                        {
+                            CitizenId = 7,
+                            CVR = "12103023031",
+                            Category = "Business",
+                            Email = "Clara@gmail.com",
+                            Namee = "Clara",
+                            PhoneNumber = "25252525"
+                        },
+                        new
+                        {
+                            CitizenId = 2,
+                            CVR = "109876543",
+                            Category = "Forretning",
+                            Email = "clara@gmail.com",
+                            Namee = "Clara",
+                            PhoneNumber = "42345677"
+                        },
+                        new
+                        {
+                            CitizenId = 3,
+                            CVR = "098765432",
+                            Category = "Forretning",
+                            Email = "Heja@gmail.com",
+                            Namee = "Heja",
+                            PhoneNumber = "42336789"
+                        });
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Facility", b =>
@@ -159,6 +188,16 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.HasKey("PersId");
 
                     b.ToTable("Personnels");
+
+                    b.HasData(
+                        new
+                        {
+                            PersId = 1
+                        },
+                        new
+                        {
+                            PersId = 2
+                        });
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>
