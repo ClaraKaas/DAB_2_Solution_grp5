@@ -13,7 +13,7 @@ namespace DAB_2_Solution_grp5.Models
         public int PersId { get; set; }
 
 
-        // laves om til one to many 
-        public List<MaintenanceLog> MaintenaceLogs { get; set; } 
+        
+        public List<MaintenanceLog> MaintenanceLogs { get; set; } 
     }
 }

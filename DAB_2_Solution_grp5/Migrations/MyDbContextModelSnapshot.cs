@@ -22,6 +22,21 @@ namespace DAB_2_Solution_grp5.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("ActivityParticipant", b =>
+                {
+                    b.Property<int>("ActivitiesActivityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ParticipantsCpr")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ActivitiesActivityId", "ParticipantsCpr");
+
+                    b.HasIndex("ParticipantsCpr");
+
+                    b.ToTable("ActivityParticipant");
+                });
+
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>
                 {
                     b.Property<int>("ActivityId")
@@ -47,9 +62,6 @@ namespace DAB_2_Solution_grp5.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Participants")
-                        .HasColumnType("int");
-
                     b.Property<string>("StartDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -74,7 +86,6 @@ namespace DAB_2_Solution_grp5.Migrations
                             EndTime = new TimeSpan(0, 12, 0, 0, 0),
                             FacilityId = 4,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
-                            Participants = 5,
                             StartDate = "1/1/2022",
                             StartTime = new TimeSpan(0, 10, 0, 0, 0)
                         },
@@ -86,7 +97,6 @@ namespace DAB_2_Solution_grp5.Migrations
                             EndTime = new TimeSpan(0, 10, 0, 0, 0),
                             FacilityId = 2,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
-                            Participants = 10,
                             StartDate = "2/2/2022",
                             StartTime = new TimeSpan(0, 8, 0, 0, 0)
                         });
@@ -256,7 +266,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 14, 18, 32, 528, DateTimeKind.Local).AddTicks(6118),
+                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6925),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -264,10 +274,40 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 14, 18, 32, 528, DateTimeKind.Local).AddTicks(6156),
+                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6960),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2
+                        });
+                });
+
+            modelBuilder.Entity("DAB_2_Solution_grp5.Models.Participant", b =>
+                {
+                    b.Property<string>("Cpr")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ActivityId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Cpr");
+
+                    b.ToTable("Participant");
+
+                    b.HasData(
+                        new
+                        {
+                            Cpr = "123021-1234",
+                            ActivityId = 1
+                        },
+                        new
+                        {
+                            Cpr = "123021-2345",
+                            ActivityId = 1
+                        },
+                        new
+                        {
+                            Cpr = "123021-3456",
+                            ActivityId = 2
                         });
                 });
 
@@ -292,6 +332,21 @@ namespace DAB_2_Solution_grp5.Migrations
                         {
                             PersId = 2
                         });
+                });
+
+            modelBuilder.Entity("ActivityParticipant", b =>
+                {
+                    b.HasOne("DAB_2_Solution_grp5.Models.Activity", null)
+                        .WithMany()
+                        .HasForeignKey("ActivitiesActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAB_2_Solution_grp5.Models.Participant", null)
+                        .WithMany()
+                        .HasForeignKey("ParticipantsCpr")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>
@@ -322,7 +377,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         .IsRequired();
 
                     b.HasOne("DAB_2_Solution_grp5.Models.Personnel", "Personnel")
-                        .WithMany("MaintenaceLogs")
+                        .WithMany("MaintenanceLogs")
                         .HasForeignKey("PersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -346,7 +401,7 @@ namespace DAB_2_Solution_grp5.Migrations
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Personnel", b =>
                 {
-                    b.Navigation("MaintenaceLogs");
+                    b.Navigation("MaintenanceLogs");
                 });
 #pragma warning restore 612, 618
         }

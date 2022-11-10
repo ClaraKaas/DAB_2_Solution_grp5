@@ -14,7 +14,7 @@ namespace DAB_2_Solution_grp5.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=127.0.0.1, 1433; Database=DAB2_1; User ID=sa;Password=<YourStrong@Passw0rd> ;TrustServerCertificate=true; ApplicationIntent=ReadWrite;");
+            optionsBuilder.UseSqlServer("Data Source=127.0.0.1, 1433; Database=DAB2_1; User ID=sa;Password=Rasm223j. ;TrustServerCertificate=true; ApplicationIntent=ReadWrite;");
         }
 
         public DbSet<Facility>? Facilities { get; set; }
@@ -55,8 +55,8 @@ namespace DAB_2_Solution_grp5.Data
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             modelBuilder.Entity<Activity>().HasData(
-                 new Activity { ActivityId = 1, StartTime = TimeSpan.FromHours(10), EndTime = TimeSpan.FromHours(12), StartDate = "1/1/2022", EndDate = "2/1/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 5, CitizenId = 3,FacilityId = 4 },
-                 new Activity { ActivityId = 2, StartTime = TimeSpan.FromHours(8), EndTime = TimeSpan.FromHours(10), StartDate = "2/2/2022", EndDate = "3/2/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 1, FacilityId = 2 });
+                 new Activity { ActivityId = 1, StartTime = TimeSpan.FromHours(10), EndTime = TimeSpan.FromHours(12), StartDate = "1/1/2022", EndDate = "2/1/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 3,FacilityId = 4 },
+                 new Activity { ActivityId = 2, StartTime = TimeSpan.FromHours(8), EndTime = TimeSpan.FromHours(10), StartDate = "2/2/2022", EndDate = "3/2/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 1, FacilityId = 2 });
 
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)
@@ -76,7 +76,7 @@ namespace DAB_2_Solution_grp5.Data
 
             modelBuilder.Entity<MaintenanceLog>()
                 .HasOne(ba => ba.Personnel)
-                .WithMany(a => a.MaintenaceLogs)
+                .WithMany(a => a.MaintenanceLogs)
                 .HasForeignKey(ba => ba.PersId);
 
             modelBuilder.Entity<MaintenanceLog>()
@@ -84,6 +84,13 @@ namespace DAB_2_Solution_grp5.Data
                 .WithMany(a => a.MaintenanceLogs)
                 .HasForeignKey(ba => ba.FacilityId);
 
+            // Participant
+
+            modelBuilder.Entity<Participant>().HasKey(b => b.Cpr);
+            modelBuilder.Entity<Participant>().HasData(
+                new Participant { Cpr = "123021-1234", ActivityId = 1 },
+                new Participant { Cpr = "123021-2345", ActivityId = 1 },
+                new Participant { Cpr = "123021-3456", ActivityId = 2 });
         }
 
     }
