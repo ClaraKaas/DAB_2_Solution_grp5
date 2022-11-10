@@ -85,7 +85,7 @@ namespace DAB_2_Solution_grp5.Data
                         foreach(var bookings in blist)
                         {
                             Console.WriteLine( 
-                                $"\n {db.Facilities.First(u => u.FacilityId == bookings.FacilityId).Name} | {db.Citizens.First(u => u.CitizenId == bookings.CitizenId).Namee} | {db.Activities.First(u => u.ActivityId == bookings.ActivityId).Time}");
+                                $"\n {db.Facilities.First(u => u.FacilityId == bookings.FacilityId).Name} | {db.Citizens.First(u => u.CitizenId == bookings.CitizenId).Namee} | {db.Activities.First(u => u.ActivityId == bookings.ActivityId).StartTime} - {db.Activities.First(u => u.ActivityId == bookings.ActivityId).StartTime}");
                         }
                         
             /*

@@ -75,7 +75,7 @@ namespace DAB_2_Solution_grp5.Data
             db.Add(AarhusStrand);
             db.Add(Navitas);
             db.Add(AU);
-            db.Add(StorcenterNord); */
+            db.Add(StorcenterNord); 
             
             Activity Activity1 = new Activity()
             {
@@ -158,9 +158,9 @@ namespace DAB_2_Solution_grp5.Data
 
             Console.WriteLine("Seeding completed successfully!");
 
-            db.SaveChangesAsync();
+            db.SaveChangesAsync(); */
 
-            Console.WriteLine("Changes saved");
+            Console.WriteLine("Changes saved"); 
 
         }
 

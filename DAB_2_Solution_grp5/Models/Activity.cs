@@ -11,7 +11,8 @@ namespace DAB_2_Solution_grp5.Models
     {
         
         public int ActivityId { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public string Note { get; set; }
         public int Participants { get; set; }
 

@@ -55,8 +55,8 @@ namespace DAB_2_Solution_grp5.Data
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             modelBuilder.Entity<Activity>().HasData(
-                 new Activity { ActivityId = 1, Time = DateTime.Now.Add(TimeSpan.FromHours(10)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 5, CitizenId = 3,FacilityId = 4 },
-                 new Activity { ActivityId = 2, Time = DateTime.Now.Add(TimeSpan.FromHours(15)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 1, FacilityId = 2 });
+                 new Activity { ActivityId = 1, StartTime = DateTime.Now.Add(TimeSpan.FromHours(10)), EndTime = DateTime.Now.Add(TimeSpan.FromHours(12)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 5, CitizenId = 3,FacilityId = 4 },
+                 new Activity { ActivityId = 2, StartTime = DateTime.Now.Add(TimeSpan.FromHours(15)), EndTime = DateTime.Now.Add(TimeSpan.FromHours(17)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 1, FacilityId = 2 });
 
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)
