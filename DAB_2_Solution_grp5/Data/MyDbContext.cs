@@ -14,7 +14,7 @@ namespace DAB_2_Solution_grp5.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=127.0.0.1, 1433; Database=DAB2_1; User ID=sa;Password=Rasm223j. ;TrustServerCertificate=true; ApplicationIntent=ReadWrite;");
+            optionsBuilder.UseSqlServer("Data Source=127.0.0.1, 1433; Database=DAB2_1; User ID=sa;Password=<YourStrong@Passw0rd> ;TrustServerCertificate=true; ApplicationIntent=ReadWrite;");
         }
 
         public DbSet<Facility>? Facilities { get; set; }
@@ -44,10 +44,10 @@ namespace DAB_2_Solution_grp5.Data
             // Facility
             modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
             modelBuilder.Entity<Facility>().HasData(
-                new Facility { FacilityId = 1, Name = "AarhusStrand", Address = "Strand 9", Type = "Privat", Description = "God plads", /*Bookable = "Ja", Items = "offentlig toillet"*/},
-                new Facility { FacilityId = 2, Name = "Navitas", Address = "Møllevej 15", Type = "Forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
-                new Facility { FacilityId = 3, Name = "Aarhus Universitet", Address = "Finlandsgade 22", Type = "Forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
-                new Facility { FacilityId = 4, Name = "Storcenter Nord", Address = "Finlandsgade 15", Type = "Shopping", Description = "Ligger i aarhus N" /*//Bookable = "Ja",  //Items = "Butikker"*/});
+                new Facility { FacilityId = 1, Name = "AarhusStrand", Longitude = 41.40338, Latitude = 2.17403, Type = "Privat", Description = "God plads", /*Bookable = "Ja", Items = "offentlig toillet"*/},
+                new Facility { FacilityId = 2, Name = "Navitas", Longitude = 32.3445, Latitude = 34.5566, Type = "Forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
+                new Facility { FacilityId = 3, Name = "Aarhus Universitet", Longitude = 23.44556, Latitude = 1.23334, Type = "Forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
+                new Facility { FacilityId = 4, Name = "Storcenter Nord", Longitude = 12.33343, Latitude = 98.66777, Type = "Shopping", Description = "Ligger i aarhus N" /*//Bookable = "Ja",  //Items = "Butikker"*/});
 
             
 

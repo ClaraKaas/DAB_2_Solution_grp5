@@ -25,7 +25,7 @@ namespace DAB_2_Solution_grp5.Data
             Console.WriteLine("\n" + "Seeding!");
 
 
-
+/*
             Facility AarhusStrand = new Facility()
             {
                 //FacilityId = 1,
@@ -70,12 +70,12 @@ namespace DAB_2_Solution_grp5.Data
                 //Bookable = "Ja",
                 //Items = "Butikker"
 
-            };
+           }; 
             
             db.Add(AarhusStrand);
             db.Add(Navitas);
             db.Add(AU);
-            db.Add(StorcenterNord);
+            db.Add(StorcenterNord); */
             
             Activity Activity1 = new Activity()
             {
