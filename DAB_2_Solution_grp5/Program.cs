@@ -63,7 +63,7 @@ namespace DAB_2_Solution_grp5.Data
         {
             foreach (var fac in db.Facilities)
             {
-                Console.WriteLine(fac.Name + " har addressen" + fac.Longitude + ", " + fac.Latitude);
+                /*Console.WriteLine(fac.Name + " har addressen" + fac.Longitude + ", " + fac.Latitude);*/
             }
         }
 
@@ -74,7 +74,7 @@ namespace DAB_2_Solution_grp5.Data
             foreach (var fac in ListOfFacilitiesSorted)
             {
 
-                Console.WriteLine(fac.Name + " " + fac.Longitude + ", " + fac.Latitude + " " + fac.Type);
+                /*Console.WriteLine(fac.Name + " " + fac.Longitude + ", " + fac.Latitude + " " + fac.Type);*/
             }
         }
 

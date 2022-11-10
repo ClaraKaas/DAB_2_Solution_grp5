@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221110224428_Migration2")]
-    partial class Migration2
+    [Migration("20221110230231_IntialCreate")]
+    partial class IntialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,21 +23,6 @@ namespace DAB_2_Solution_grp5.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("ActivityParticipant", b =>
-                {
-                    b.Property<int>("ActivitiesActivityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ParticipantsCpr")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ActivitiesActivityId", "ParticipantsCpr");
-
-                    b.HasIndex("ParticipantsCpr");
-
-                    b.ToTable("ActivityParticipant");
-                });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>
                 {
@@ -64,6 +49,9 @@ namespace DAB_2_Solution_grp5.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Participants")
+                        .HasColumnType("int");
+
                     b.Property<string>("StartDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -88,6 +76,7 @@ namespace DAB_2_Solution_grp5.Migrations
                             EndTime = new TimeSpan(0, 12, 0, 0, 0),
                             FacilityId = 4,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
+                            Participants = 5,
                             StartDate = "1/1/2022",
                             StartTime = new TimeSpan(0, 10, 0, 0, 0)
                         },
@@ -99,6 +88,7 @@ namespace DAB_2_Solution_grp5.Migrations
                             EndTime = new TimeSpan(0, 10, 0, 0, 0),
                             FacilityId = 2,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
+                            Participants = 10,
                             StartDate = "2/2/2022",
                             StartTime = new TimeSpan(0, 8, 0, 0, 0)
                         });
@@ -174,15 +164,13 @@ namespace DAB_2_Solution_grp5.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FacilityId"), 1L, 1);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Latitude")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Longitude")
-                        .HasColumnType("float");
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -200,36 +188,32 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             FacilityId = 1,
+                            Address = "stranvej 123",
                             Description = "God plads",
-                            Latitude = 2.1740300000000001,
-                            Longitude = 41.403379999999999,
                             Name = "AarhusStrand",
                             Type = "Privat"
                         },
                         new
                         {
                             FacilityId = 2,
+                            Address = "navitasvej 123",
                             Description = "Den ligger ved haven kanten",
-                            Latitude = 34.556600000000003,
-                            Longitude = 32.344499999999996,
                             Name = "Navitas",
                             Type = "Forretning"
                         },
                         new
                         {
                             FacilityId = 3,
+                            Address = "Langelandsgade 123",
                             Description = "Skole",
-                            Latitude = 1.2333400000000001,
-                            Longitude = 23.44556,
                             Name = "Aarhus Universitet",
                             Type = "Forretning"
                         },
                         new
                         {
                             FacilityId = 4,
+                            Address = "Pauldan müllersvej",
                             Description = "Ligger i aarhus N",
-                            Latitude = 98.667770000000004,
-                            Longitude = 12.33343,
                             Name = "Storcenter Nord",
                             Type = "Shopping"
                         });
@@ -268,7 +252,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6925),
+                            Date = new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(3996),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -276,40 +260,10 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6960),
+                            Date = new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(4028),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2
-                        });
-                });
-
-            modelBuilder.Entity("DAB_2_Solution_grp5.Models.Participant", b =>
-                {
-                    b.Property<string>("Cpr")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ActivityId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Cpr");
-
-                    b.ToTable("Participant");
-
-                    b.HasData(
-                        new
-                        {
-                            Cpr = "123021-1234",
-                            ActivityId = 1
-                        },
-                        new
-                        {
-                            Cpr = "123021-2345",
-                            ActivityId = 1
-                        },
-                        new
-                        {
-                            Cpr = "123021-3456",
-                            ActivityId = 2
                         });
                 });
 
@@ -334,21 +288,6 @@ namespace DAB_2_Solution_grp5.Migrations
                         {
                             PersId = 2
                         });
-                });
-
-            modelBuilder.Entity("ActivityParticipant", b =>
-                {
-                    b.HasOne("DAB_2_Solution_grp5.Models.Activity", null)
-                        .WithMany()
-                        .HasForeignKey("ActivitiesActivityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DAB_2_Solution_grp5.Models.Participant", null)
-                        .WithMany()
-                        .HasForeignKey("ParticipantsCpr")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>

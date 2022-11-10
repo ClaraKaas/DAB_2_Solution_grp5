@@ -44,10 +44,10 @@ namespace DAB_2_Solution_grp5.Data
             // Facility
             modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
             modelBuilder.Entity<Facility>().HasData(
-                new Facility { FacilityId = 1, Name = "AarhusStrand", Longitude = 41.40338, Latitude = 2.17403, Type = "Privat", Description = "God plads", /*Bookable = "Ja", Items = "offentlig toillet"*/},
-                new Facility { FacilityId = 2, Name = "Navitas", Longitude = 32.3445, Latitude = 34.5566, Type = "Forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
-                new Facility { FacilityId = 3, Name = "Aarhus Universitet", Longitude = 23.44556, Latitude = 1.23334, Type = "Forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
-                new Facility { FacilityId = 4, Name = "Storcenter Nord", Longitude = 12.33343, Latitude = 98.66777, Type = "Shopping", Description = "Ligger i aarhus N" /*//Bookable = "Ja",  //Items = "Butikker"*/});
+                new Facility { FacilityId = 1, Name = "AarhusStrand", Address = "stranvej 123", Type = "Privat", Description = "God plads", /*Bookable = "Ja", Items = "offentlig toillet"*/},
+                new Facility { FacilityId = 2, Name = "Navitas", Address = "navitasvej 123", Type = "Forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
+                new Facility { FacilityId = 3, Name = "Aarhus Universitet", Address = "Langelandsgade 123", Type = "Forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
+                new Facility { FacilityId = 4, Name = "Storcenter Nord", Address = "Pauldan müllersvej", Type = "Shopping", Description = "Ligger i aarhus N" /*//Bookable = "Ja",  //Items = "Butikker"*/});
 
             
 
@@ -55,8 +55,8 @@ namespace DAB_2_Solution_grp5.Data
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             modelBuilder.Entity<Activity>().HasData(
-                 new Activity { ActivityId = 1, StartTime = TimeSpan.FromHours(10), EndTime = TimeSpan.FromHours(12), StartDate = "1/1/2022", EndDate = "2/1/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 3,FacilityId = 4 },
-                 new Activity { ActivityId = 2, StartTime = TimeSpan.FromHours(8), EndTime = TimeSpan.FromHours(10), StartDate = "2/2/2022", EndDate = "3/2/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 1, FacilityId = 2 });
+                 new Activity { ActivityId = 1, StartTime = TimeSpan.FromHours(10), EndTime = TimeSpan.FromHours(12), StartDate = "1/1/2022", EndDate = "2/1/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",Participants = 5, CitizenId = 3,FacilityId = 4 },
+                 new Activity { ActivityId = 2, StartTime = TimeSpan.FromHours(8), EndTime = TimeSpan.FromHours(10), StartDate = "2/2/2022", EndDate = "3/2/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 1, FacilityId = 2 });
 
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)
@@ -84,13 +84,7 @@ namespace DAB_2_Solution_grp5.Data
                 .WithMany(a => a.MaintenanceLogs)
                 .HasForeignKey(ba => ba.FacilityId);
 
-            // Participant
-
-            modelBuilder.Entity<Participant>().HasKey(b => b.Cpr);
-            modelBuilder.Entity<Participant>().HasData(
-                new Participant { Cpr = "123021-1234", ActivityId = 1 },
-                new Participant { Cpr = "123021-2345", ActivityId = 1 },
-                new Participant { Cpr = "123021-3456", ActivityId = 2 });
+            
         }
 
     }
