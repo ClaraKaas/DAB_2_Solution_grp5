@@ -4,6 +4,7 @@ using DAB_2_Solution_grp5.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221110220524_MigrationTime4")]
+    partial class MigrationTime4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,10 +35,6 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.Property<int>("CitizenId")
                         .HasColumnType("int");
 
-                    b.Property<string>("EndDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
 
@@ -49,10 +47,6 @@ namespace DAB_2_Solution_grp5.Migrations
 
                     b.Property<int>("Participants")
                         .HasColumnType("int");
-
-                    b.Property<string>("StartDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
@@ -70,24 +64,20 @@ namespace DAB_2_Solution_grp5.Migrations
                         {
                             ActivityId = 1,
                             CitizenId = 3,
-                            EndDate = "2/1/2022",
                             EndTime = new TimeSpan(0, 12, 0, 0, 0),
                             FacilityId = 4,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 5,
-                            StartDate = "1/1/2022",
                             StartTime = new TimeSpan(0, 10, 0, 0, 0)
                         },
                         new
                         {
                             ActivityId = 2,
                             CitizenId = 1,
-                            EndDate = "3/2/2022",
                             EndTime = new TimeSpan(0, 10, 0, 0, 0),
                             FacilityId = 2,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 10,
-                            StartDate = "2/2/2022",
                             StartTime = new TimeSpan(0, 8, 0, 0, 0)
                         });
                 });
@@ -256,7 +246,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 14, 18, 32, 528, DateTimeKind.Local).AddTicks(6118),
+                            Date = new DateTime(2022, 11, 11, 14, 5, 23, 762, DateTimeKind.Local).AddTicks(9121),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -264,7 +254,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 14, 18, 32, 528, DateTimeKind.Local).AddTicks(6156),
+                            Date = new DateTime(2022, 11, 11, 14, 5, 23, 762, DateTimeKind.Local).AddTicks(9168),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2

@@ -4,6 +4,7 @@ using DAB_2_Solution_grp5.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221110221430_MigrationTime5")]
+    partial class MigrationTime5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -256,7 +258,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 14, 18, 32, 528, DateTimeKind.Local).AddTicks(6118),
+                            Date = new DateTime(2022, 11, 11, 14, 14, 29, 543, DateTimeKind.Local).AddTicks(4072),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -264,7 +266,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 14, 18, 32, 528, DateTimeKind.Local).AddTicks(6156),
+                            Date = new DateTime(2022, 11, 11, 14, 14, 29, 543, DateTimeKind.Local).AddTicks(4118),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2
