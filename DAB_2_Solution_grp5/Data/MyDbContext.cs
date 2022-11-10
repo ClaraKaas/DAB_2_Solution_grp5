@@ -41,11 +41,22 @@ namespace DAB_2_Solution_grp5.Data
                  new Personnel { PersId = 1 },
                  new Personnel { PersId = 2 });
 
+            // Facility
+            modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
+            modelBuilder.Entity<Facility>().HasData(
+                new Facility { FacilityId = 1, Name = "AarhusStrand", Address = "Strand 9", Type = "Privat", Description = "God plads", /*Bookable = "Ja", Items = "offentlig toillet"*/},
+                new Facility { FacilityId = 2, Name = "Navitas", Address = "Møllevej 15", Type = "forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
+                new Facility { FacilityId = 3, Name = "Aarhus Universitet", Address = "Finlandsgade 22", Type = "forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
+                new Facility { FacilityId = 4, Name = "Storcenter Nord", Address = "Finlandsgade 15", Type = "Shopping", Description = "Ligger i aarhus N" /*//Bookable = "Ja",  //Items = "Butikker"*/});
+
+            
+
+
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             modelBuilder.Entity<Activity>().HasData(
-                 new Activity { ActivityId = 5, Time = DateTime.Now.Add(TimeSpan.FromHours(10)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 5, CitizenId = 1,FacilityId = 1 },
-                 new Activity { ActivityId = 7, Time = DateTime.Now.Add(TimeSpan.FromHours(15)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 2, FacilityId = 2 });
+                 new Activity { ActivityId = 1, Time = DateTime.Now.Add(TimeSpan.FromHours(10)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 5, CitizenId = 1,FacilityId = 1 },
+                 new Activity { ActivityId = 2, Time = DateTime.Now.Add(TimeSpan.FromHours(15)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 2, FacilityId = 2 });
 
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)
@@ -59,45 +70,19 @@ namespace DAB_2_Solution_grp5.Data
 
             // MaintenanceLog
             modelBuilder.Entity<MaintenanceLog>().HasKey(b => b.MaintenanceId);
-            modelBuilder.Entity<Activity>().HasData(
-                new MaintenanceLog { MaintenanceId = 1, Description = "Ved ikke", Date = DateTime.Now.Add(TimeSpan.FromHours(15)) },
-                new MaintenanceLog { MaintenanceId = 2, Description = "gegikvep", Date = DateTime.Now.Add(TimeSpan.FromHours(15)) });
+            modelBuilder.Entity<MaintenanceLog>().HasData(
+                new MaintenanceLog { MaintenanceId = 1, Description = "Ved ikke", Date = DateTime.Now.Add(TimeSpan.FromHours(15)), FacilityId = 1, PersId = 1 },
+                new MaintenanceLog { MaintenanceId = 2, Description = "gegikvep", Date = DateTime.Now.Add(TimeSpan.FromHours(15)), FacilityId = 2, PersId = 2 });
 
             modelBuilder.Entity<MaintenanceLog>()
                 .HasOne(ba => ba.Personnel)
                 .WithMany(a => a.MaintenaceLogs)
                 .HasForeignKey(ba => ba.PersId);
 
-            // Facility
-            modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
-            modelBuilder.Entity<Activity>().HasData(
-                new Facility { FacilityId = 1, Name = "AarhusStrand", Address = "Strand 9", Type = "Privat", Description = "God plads", /*Bookable = "Ja", Items = "offentlig toillet"*/},
-                new Facility { FacilityId = 2, Name = "Navitas", Address = "Møllevej 15", Type = "forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
-                new Facility             {
-                FacilityId = 3,
-                Name = "Aarhus Universitet",
-                Address = "Finlandsgade 22",
-                Type = "forretning",
-                Description = "Skole"
-                /*Bookable = "Ja",
-                //Items = "Bord og stoler"*/ },
-            
-             new Facility
-            {
-                //FacilityId= 4,
-                Name = "Storcenter Nord",
-                Address = "Finlandsgade 15",
-                Type = "Shopping",
-                Description = "Ligger i aarhus N"
-                /*//Bookable = "Ja",
-                //Items = "Butikker"*/});
-
-
-            modelBuilder.Entity<Facility>()
-                .HasOne(ba => ba.MaintenanceLog)
-                .WithOne(a => a.Facility)
-                .HasForeignKey<MaintenanceLog>(ba => ba.FacilityId);
-
+            modelBuilder.Entity<MaintenanceLog>()
+                .HasOne(ba => ba.Facility)
+                .WithMany(a => a.MaintenanceLogs)
+                .HasForeignKey(ba => ba.FacilityId);
 
         }
 

@@ -53,6 +53,26 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.HasIndex("FacilityId");
 
                     b.ToTable("Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ActivityId = 5,
+                            CitizenId = 1,
+                            FacilityId = 1,
+                            Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
+                            Participants = 5,
+                            Time = new DateTime(2022, 11, 11, 3, 17, 19, 380, DateTimeKind.Local).AddTicks(5092)
+                        },
+                        new
+                        {
+                            ActivityId = 7,
+                            CitizenId = 2,
+                            FacilityId = 2,
+                            Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
+                            Participants = 10,
+                            Time = new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(5153)
+                        });
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Citizen", b =>
@@ -90,7 +110,7 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.HasData(
                         new
                         {
-                            CitizenId = 7,
+                            CitizenId = 1,
                             CVR = "12103023031",
                             Category = "Business",
                             Email = "Clara@gmail.com",
@@ -144,6 +164,40 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.HasKey("FacilityId");
 
                     b.ToTable("Facilities");
+
+                    b.HasData(
+                        new
+                        {
+                            FacilityId = 1,
+                            Address = "Strand 9",
+                            Description = "God plads",
+                            Name = "AarhusStrand",
+                            Type = "Privat"
+                        },
+                        new
+                        {
+                            FacilityId = 2,
+                            Address = "Møllevej 15",
+                            Description = "Den ligger ved haven kanten",
+                            Name = "Navitas",
+                            Type = "forretning"
+                        },
+                        new
+                        {
+                            FacilityId = 3,
+                            Address = "Finlandsgade 22",
+                            Description = "Skole",
+                            Name = "Aarhus Universitet",
+                            Type = "forretning"
+                        },
+                        new
+                        {
+                            FacilityId = 4,
+                            Address = "Finlandsgade 15",
+                            Description = "Ligger i aarhus N",
+                            Name = "Storcenter Nord",
+                            Type = "Shopping"
+                        });
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.MaintenanceLog", b =>
@@ -169,12 +223,29 @@ namespace DAB_2_Solution_grp5.Migrations
 
                     b.HasKey("MaintenanceId");
 
-                    b.HasIndex("FacilityId")
-                        .IsUnique();
+                    b.HasIndex("FacilityId");
 
                     b.HasIndex("PersId");
 
                     b.ToTable("MaintenanceLogs");
+
+                    b.HasData(
+                        new
+                        {
+                            MaintenanceId = 1,
+                            Date = new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9543),
+                            Description = "Ved ikke",
+                            FacilityId = 1,
+                            PersId = 1
+                        },
+                        new
+                        {
+                            MaintenanceId = 2,
+                            Date = new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9577),
+                            Description = "gegikvep",
+                            FacilityId = 2,
+                            PersId = 2
+                        });
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Personnel", b =>
@@ -222,8 +293,8 @@ namespace DAB_2_Solution_grp5.Migrations
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.MaintenanceLog", b =>
                 {
                     b.HasOne("DAB_2_Solution_grp5.Models.Facility", "Facility")
-                        .WithOne("MaintenanceLog")
-                        .HasForeignKey("DAB_2_Solution_grp5.Models.MaintenanceLog", "FacilityId")
+                        .WithMany("MaintenanceLogs")
+                        .HasForeignKey("FacilityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -247,8 +318,7 @@ namespace DAB_2_Solution_grp5.Migrations
                 {
                     b.Navigation("Activities");
 
-                    b.Navigation("MaintenanceLog")
-                        .IsRequired();
+                    b.Navigation("MaintenanceLogs");
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Personnel", b =>

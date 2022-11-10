@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace DAB_2_Solution_grp5.Migrations
 {
-    public partial class intialCreate : Migration
+    public partial class IntialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -115,9 +116,20 @@ namespace DAB_2_Solution_grp5.Migrations
                 columns: new[] { "CitizenId", "CVR", "Category", "Email", "Namee", "PhoneNumber" },
                 values: new object[,]
                 {
+                    { 1, "12103023031", "Business", "Clara@gmail.com", "Clara", "25252525" },
                     { 2, "109876543", "Forretning", "clara@gmail.com", "Clara", "42345677" },
-                    { 3, "098765432", "Forretning", "Heja@gmail.com", "Heja", "42336789" },
-                    { 7, "12103023031", "Business", "Clara@gmail.com", "Clara", "25252525" }
+                    { 3, "098765432", "Forretning", "Heja@gmail.com", "Heja", "42336789" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Facilities",
+                columns: new[] { "FacilityId", "Address", "Description", "Name", "Type" },
+                values: new object[,]
+                {
+                    { 1, "Strand 9", "God plads", "AarhusStrand", "Privat" },
+                    { 2, "Møllevej 15", "Den ligger ved haven kanten", "Navitas", "forretning" },
+                    { 3, "Finlandsgade 22", "Skole", "Aarhus Universitet", "forretning" },
+                    { 4, "Finlandsgade 15", "Ligger i aarhus N", "Storcenter Nord", "Shopping" }
                 });
 
             migrationBuilder.InsertData(
@@ -127,6 +139,24 @@ namespace DAB_2_Solution_grp5.Migrations
                 {
                     1,
                     2
+                });
+
+            migrationBuilder.InsertData(
+                table: "Activities",
+                columns: new[] { "ActivityId", "CitizenId", "FacilityId", "Note", "Participants", "Time" },
+                values: new object[,]
+                {
+                    { 5, 1, 1, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 5, new DateTime(2022, 11, 11, 3, 17, 19, 380, DateTimeKind.Local).AddTicks(5092) },
+                    { 7, 2, 2, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 10, new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(5153) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "MaintenanceLogs",
+                columns: new[] { "MaintenanceId", "Date", "Description", "FacilityId", "PersId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9543), "Ved ikke", 1, 1 },
+                    { 2, new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9577), "gegikvep", 2, 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -142,8 +172,7 @@ namespace DAB_2_Solution_grp5.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_MaintenanceLogs_FacilityId",
                 table: "MaintenanceLogs",
-                column: "FacilityId",
-                unique: true);
+                column: "FacilityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MaintenanceLogs_PersId",
