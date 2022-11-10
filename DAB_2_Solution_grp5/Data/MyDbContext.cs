@@ -31,7 +31,7 @@ namespace DAB_2_Solution_grp5.Data
             modelBuilder.Entity<Citizen>().HasKey(a => a.CitizenId);
             modelBuilder.Entity<Citizen>().HasData(
                  new Citizen { CitizenId = 1, Namee = "Clara", Email = "Clara@gmail.com", CVR = "12103023031", Category = "Business", PhoneNumber = "25252525" },
-                 new Citizen { CitizenId = 2, Namee = "Clara", Email = "clara@gmail.com", CVR = "109876543", Category = "Forretning", PhoneNumber = "42345677" },
+                 new Citizen { CitizenId = 2, Namee = "Rasmus", Email = "Rasmus@gmail.com", CVR = "109876543", Category = "Forretning", PhoneNumber = "42345677" },
                  new Citizen { CitizenId = 3, Namee = "Heja", Email = "Heja@gmail.com", CVR = "098765432", Category = "Forretning", PhoneNumber = "42336789" });
 
 
@@ -45,8 +45,8 @@ namespace DAB_2_Solution_grp5.Data
             modelBuilder.Entity<Facility>().HasKey(b => b.FacilityId);
             modelBuilder.Entity<Facility>().HasData(
                 new Facility { FacilityId = 1, Name = "AarhusStrand", Address = "Strand 9", Type = "Privat", Description = "God plads", /*Bookable = "Ja", Items = "offentlig toillet"*/},
-                new Facility { FacilityId = 2, Name = "Navitas", Address = "Møllevej 15", Type = "forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
-                new Facility { FacilityId = 3, Name = "Aarhus Universitet", Address = "Finlandsgade 22", Type = "forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
+                new Facility { FacilityId = 2, Name = "Navitas", Address = "Møllevej 15", Type = "Forretning", Description = "Den ligger ved haven kanten" /*Bookable = "Ja", //Items = "Bord og stoler"*/},
+                new Facility { FacilityId = 3, Name = "Aarhus Universitet", Address = "Finlandsgade 22", Type = "Forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
                 new Facility { FacilityId = 4, Name = "Storcenter Nord", Address = "Finlandsgade 15", Type = "Shopping", Description = "Ligger i aarhus N" /*//Bookable = "Ja",  //Items = "Butikker"*/});
 
             
@@ -55,8 +55,8 @@ namespace DAB_2_Solution_grp5.Data
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             modelBuilder.Entity<Activity>().HasData(
-                 new Activity { ActivityId = 1, Time = DateTime.Now.Add(TimeSpan.FromHours(10)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 5, CitizenId = 1,FacilityId = 1 },
-                 new Activity { ActivityId = 2, Time = DateTime.Now.Add(TimeSpan.FromHours(15)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 2, FacilityId = 2 });
+                 new Activity { ActivityId = 1, Time = DateTime.Now.Add(TimeSpan.FromHours(10)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 5, CitizenId = 3,FacilityId = 4 },
+                 new Activity { ActivityId = 2, Time = DateTime.Now.Add(TimeSpan.FromHours(15)), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 1, FacilityId = 2 });
 
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)

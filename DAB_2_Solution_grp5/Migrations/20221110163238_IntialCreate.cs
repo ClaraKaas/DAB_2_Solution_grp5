@@ -117,7 +117,7 @@ namespace DAB_2_Solution_grp5.Migrations
                 values: new object[,]
                 {
                     { 1, "12103023031", "Business", "Clara@gmail.com", "Clara", "25252525" },
-                    { 2, "109876543", "Forretning", "clara@gmail.com", "Clara", "42345677" },
+                    { 2, "109876543", "Forretning", "Rasmus@gmail.com", "Rasmus", "42345677" },
                     { 3, "098765432", "Forretning", "Heja@gmail.com", "Heja", "42336789" }
                 });
 
@@ -127,8 +127,8 @@ namespace DAB_2_Solution_grp5.Migrations
                 values: new object[,]
                 {
                     { 1, "Strand 9", "God plads", "AarhusStrand", "Privat" },
-                    { 2, "Møllevej 15", "Den ligger ved haven kanten", "Navitas", "forretning" },
-                    { 3, "Finlandsgade 22", "Skole", "Aarhus Universitet", "forretning" },
+                    { 2, "Møllevej 15", "Den ligger ved haven kanten", "Navitas", "Forretning" },
+                    { 3, "Finlandsgade 22", "Skole", "Aarhus Universitet", "Forretning" },
                     { 4, "Finlandsgade 15", "Ligger i aarhus N", "Storcenter Nord", "Shopping" }
                 });
 
@@ -146,8 +146,8 @@ namespace DAB_2_Solution_grp5.Migrations
                 columns: new[] { "ActivityId", "CitizenId", "FacilityId", "Note", "Participants", "Time" },
                 values: new object[,]
                 {
-                    { 5, 1, 1, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 5, new DateTime(2022, 11, 11, 3, 17, 19, 380, DateTimeKind.Local).AddTicks(5092) },
-                    { 7, 2, 2, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 10, new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(5153) }
+                    { 1, 3, 4, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 5, new DateTime(2022, 11, 11, 3, 32, 37, 993, DateTimeKind.Local).AddTicks(5811) },
+                    { 2, 1, 2, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 10, new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(5855) }
                 });
 
             migrationBuilder.InsertData(
@@ -155,8 +155,8 @@ namespace DAB_2_Solution_grp5.Migrations
                 columns: new[] { "MaintenanceId", "Date", "Description", "FacilityId", "PersId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9543), "Ved ikke", 1, 1 },
-                    { 2, new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9577), "gegikvep", 2, 2 }
+                    { 1, new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7659), "Ved ikke", 1, 1 },
+                    { 2, new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7673), "gegikvep", 2, 2 }
                 });
 
             migrationBuilder.CreateIndex(

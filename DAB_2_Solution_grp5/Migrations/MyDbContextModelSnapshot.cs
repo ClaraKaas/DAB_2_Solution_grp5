@@ -57,21 +57,21 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.HasData(
                         new
                         {
-                            ActivityId = 5,
-                            CitizenId = 1,
-                            FacilityId = 1,
+                            ActivityId = 1,
+                            CitizenId = 3,
+                            FacilityId = 4,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 5,
-                            Time = new DateTime(2022, 11, 11, 3, 17, 19, 380, DateTimeKind.Local).AddTicks(5092)
+                            Time = new DateTime(2022, 11, 11, 3, 32, 37, 993, DateTimeKind.Local).AddTicks(5811)
                         },
                         new
                         {
-                            ActivityId = 7,
-                            CitizenId = 2,
+                            ActivityId = 2,
+                            CitizenId = 1,
                             FacilityId = 2,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 10,
-                            Time = new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(5153)
+                            Time = new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(5855)
                         });
                 });
 
@@ -122,8 +122,8 @@ namespace DAB_2_Solution_grp5.Migrations
                             CitizenId = 2,
                             CVR = "109876543",
                             Category = "Forretning",
-                            Email = "clara@gmail.com",
-                            Namee = "Clara",
+                            Email = "Rasmus@gmail.com",
+                            Namee = "Rasmus",
                             PhoneNumber = "42345677"
                         },
                         new
@@ -180,7 +180,7 @@ namespace DAB_2_Solution_grp5.Migrations
                             Address = "Møllevej 15",
                             Description = "Den ligger ved haven kanten",
                             Name = "Navitas",
-                            Type = "forretning"
+                            Type = "Forretning"
                         },
                         new
                         {
@@ -188,7 +188,7 @@ namespace DAB_2_Solution_grp5.Migrations
                             Address = "Finlandsgade 22",
                             Description = "Skole",
                             Name = "Aarhus Universitet",
-                            Type = "forretning"
+                            Type = "Forretning"
                         },
                         new
                         {
@@ -233,7 +233,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9543),
+                            Date = new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7659),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -241,7 +241,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 8, 17, 19, 380, DateTimeKind.Local).AddTicks(9577),
+                            Date = new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7673),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2

@@ -80,14 +80,14 @@ namespace DAB_2_Solution_grp5.Data
 
         static void Opgave2_3(MyDbContext db)
         {
-            /*
+            
                         var blist = db.Activities.ToList();
                         foreach(var bookings in blist)
                         {
-                            Console.WriteLine(
-                                $"{bookings.ActivityId} | {db.Citizens.First(u => u.CitizenId == bookings.CitizenId).Namee}");
+                            Console.WriteLine( 
+                                $"\n {db.Facilities.First(u => u.FacilityId == bookings.FacilityId).Name} | {db.Citizens.First(u => u.CitizenId == bookings.CitizenId).Namee} | {db.Activities.First(u => u.ActivityId == bookings.ActivityId).Time}");
                         }
-                        */
+                        
             /*
             var Bookedfacility = from Booking in db.Set<Booking>()
                                  join Facility in db.Set<Facility>() on Booking.FacilityId equals Facility.FacilityId
