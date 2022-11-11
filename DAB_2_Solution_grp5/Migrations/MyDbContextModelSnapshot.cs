@@ -266,7 +266,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6925),
+                            Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(889),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -274,7 +274,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6960),
+                            Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(933),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221110224428_Migration2")]
+    [Migration("20221110224816_Migration2")]
     partial class Migration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -268,7 +268,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6925),
+                            Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(889),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -276,7 +276,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6960),
+                            Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(933),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2

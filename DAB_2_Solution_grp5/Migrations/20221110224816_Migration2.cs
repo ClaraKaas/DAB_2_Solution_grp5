@@ -100,14 +100,14 @@ namespace DAB_2_Solution_grp5.Migrations
                 keyColumn: "MaintenanceId",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6925));
+                value: new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(889));
 
             migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 14, 44, 28, 178, DateTimeKind.Local).AddTicks(6960));
+                value: new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(933));
 
             migrationBuilder.InsertData(
                 table: "Participant",
