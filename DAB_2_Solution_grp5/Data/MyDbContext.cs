@@ -22,6 +22,7 @@ namespace DAB_2_Solution_grp5.Data
         public DbSet<Activity>? Activities { get; set; }
         public DbSet<Personnel>? Personnels { get; set; }
         public DbSet<MaintenanceLog>? MaintenanceLogs { get; set; }
+        public DbSet<Participant>? Participants { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -68,8 +69,8 @@ namespace DAB_2_Solution_grp5.Data
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             modelBuilder.Entity<Activity>().HasData(
-                 new Activity { ActivityId = 1, StartTime = TimeSpan.FromHours(10), EndTime = TimeSpan.FromHours(12), StartDate = "1/1/2022", EndDate = "2/1/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",Participants = 5, CitizenId = 3,FacilityId = 4 },
-                 new Activity { ActivityId = 2, StartTime = TimeSpan.FromHours(8), EndTime = TimeSpan.FromHours(10), StartDate = "2/2/2022", EndDate = "3/2/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", Participants = 10, CitizenId = 1, FacilityId = 2 });
+                 new Activity { ActivityId = 1, StartTime = TimeSpan.FromHours(10), EndTime = TimeSpan.FromHours(12), StartDate = "1/1/2022", EndDate = "2/1/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 3,FacilityId = 4 },
+                 new Activity { ActivityId = 2, StartTime = TimeSpan.FromHours(8), EndTime = TimeSpan.FromHours(10), StartDate = "2/2/2022", EndDate = "3/2/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 1, FacilityId = 2 });
 
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)
@@ -96,8 +97,14 @@ namespace DAB_2_Solution_grp5.Data
                 .HasOne(ba => ba.Facility)
                 .WithMany(a => a.MaintenanceLogs)
                 .HasForeignKey(ba => ba.FacilityId);
+            // Participant
 
-            
+            modelBuilder.Entity<Participant>().HasKey(b => b.Cpr);
+            modelBuilder.Entity<Participant>().HasData(
+                new Participant { Cpr = "123021-1234", ActivityId = 1 },
+                new Participant { Cpr = "123021-2345", ActivityId = 1 },
+                new Participant { Cpr = "123021-3456", ActivityId = 2 });
+
         }
 
     }

@@ -26,7 +26,7 @@ namespace DAB_2_Solution_grp5.Data
                     SeedData.SeedDatabase();
                 }
 
-                Console.WriteLine("\n" + "Vis Opgave2_1(a) Opgave2_2(b), Opgave2_3(c)");
+                Console.WriteLine("\n" + "Vis Opgave2_1(a) Opgave2_2(b), Opgave2_3(c), Opgave3_2(d)");
                 consoleKeyInfo = Console.ReadKey();
                 if (consoleKeyInfo.KeyChar == 'a' || consoleKeyInfo.KeyChar == 'b' || consoleKeyInfo.KeyChar == 'c')
                 {
@@ -56,6 +56,9 @@ namespace DAB_2_Solution_grp5.Data
                 case 'c':
                     Opgave2_3(db);
                     break;
+                case 'd':
+                    Opgave3_2(db);
+                    break;
             }
         }
 
@@ -81,103 +84,47 @@ namespace DAB_2_Solution_grp5.Data
         static void Opgave2_3(MyDbContext db)
         {
             
-                        var blist = db.Activities.ToList();
-                        foreach(var bookings in blist)
-                        {
-                            Console.WriteLine( 
-                                $"\n {db.Facilities.First(u => u.FacilityId == bookings.FacilityId).Name} | {db.Citizens.First(u => u.CitizenId == bookings.CitizenId).Namee} | {db.Activities.First(u => u.ActivityId == bookings.ActivityId).StartDate} {db.Activities.First(u => u.ActivityId == bookings.ActivityId).StartTime}  - {db.Activities.First(u => u.ActivityId == bookings.ActivityId).EndDate} " +
-                                $" {db.Activities.First(u => u.ActivityId == bookings.ActivityId).EndTime}");
-                        }
-                        
-            /*
-            var Bookedfacility = from Booking in db.Set<Booking>()
-                                 join Facility in db.Set<Facility>() on Booking.FacilityId equals Facility.FacilityId
-                                 join Citizen in db.Set<Citizen>() on Booking.CitizenId equals Citizen.CitizenId
-                                 join Activity in db.Set<Activity>() on Booking.ActivityId equals Activity.ActivityId
-
-                                 select new { Booking, Facility, Citizen, Activity };
-
-            foreach (var asss in Bookedfacility)
+            var alist = db.Activities.ToList();
+            foreach(var activity in alist)
             {
-
-                Console.WriteLine(" Room with Id  " + "\n" + .FacilityId
-                                  + "is reserved from "
-                                  + Citizen.Namee
-                                  + " to "
-                                  + .Activity.Time
-                                  + "\n");
-
-                Console.WriteLine("\n");
-
-
-            }*/
-
-
-
-
-
-
-
-
-
-
-            /*
-
-                        static void OpgaveC(MyDbContext db)
-
-                        {       
-                                var ListOfFacilitiesSorted = db.Facilities.OrderBy(x => x.Type);
-
-                        var n = db.Bookings
-                            .Include(book => book.Facility.Name)
-                            //.ThenInclude(fac => fac.Name)
-                            .Include(book => book.Citizen.Name)
-                            //.ThenInclude(cit => cit.Name)
-                            .Include(book => book.Activity.Time)
-                            //.ThenInclude(act => act.Time)
-                            .ToList();
-
-                            foreach (var list in n)
-                            {
-                                Console.WriteLine(list.Citizen.Name + list.Facility.Name + list.Activity.Time);
-                            }
-                        }
-
-                        /*
-                                    private static void ListAllFacilities(MyDbContext db)
-                                    {
-                                        var fac = db.Facilities.Include(b => b.FacilityId).ToList();
-
-
-                                        {
-                                            Console.WriteLine("Her er alle" + fac ) ;
-                                        }
-                                    }
-
-                                    private static void ListAllCitizen(MyDbContext db)
-                                    {
-                                        foreach (var user in db.Citizens)
-                                        {
-                                            Console.WriteLine(user.CitizenId);
-                                        }
-                                    }
-
-                                    private static void ListAllActivities(MyDbContext db)
-                                    {
-                                        foreach (var pc in db.Activities.Include(p => p.Bookings).ToList())
-                                        {
-                                            Console.WriteLine(pc);
-                                        }
-
-                    System.Console.WriteLine("\n" + "Show all products Y/n" );
-                        consoleKeyInfo = Console.ReadKey();
-                        if (consoleKeyInfo.KeyChar == 'Y')
-                        {
-                            ShowAllData(db, 'X');
-                        }
-                                    }*/
+                Console.WriteLine( 
+                    $"\n {db.Facilities.First(u => u.FacilityId == activity.FacilityId).Name} | " +
+                    $"{db.Citizens.First(u => u.CitizenId == activity.CitizenId).Namee} | " +
+                    $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).StartDate} " +
+                    $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).StartTime} - " +
+                    $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).EndDate} " +
+                    $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).EndTime}");
+            }
+                        
+            
         }
 
+        static void Opgave3_2(MyDbContext db)
+        {
+            var bList = db.Activities.Include(a => a.Participants);
+            foreach (var activity in bList)
+            {
+                Console.WriteLine($"{activity.ActivityId}");
+                var temp = activity.Participants;
+                //Console.WriteLine(temp[0].cpr);
+                foreach (var activityParticipant in temp)
+                {
+                    Console.WriteLine($"{activityParticipant.Cpr}");
+                }
+
+            }
+
+
+            /*
+            var plist = db.Participants.ToList();
+            foreach (var part in plist)
+            {
+                Console.WriteLine(
+                    $"\n {db.Activities.First(u => u.ActivityId == part.ActivityId).ActivityId} | " +
+                    part.Cpr  );
+            }*/
+
+        }
     }
 }
 
