@@ -28,20 +28,6 @@ namespace DAB_2_Solution_grp5.Migrations
                 defaultValue: 0.0);
 
             migrationBuilder.UpdateData(
-                table: "Activities",
-                keyColumn: "ActivityId",
-                keyValue: 1,
-                column: "Time",
-                value: new DateTime(2022, 11, 11, 4, 46, 49, 474, DateTimeKind.Local).AddTicks(3306));
-
-            migrationBuilder.UpdateData(
-                table: "Activities",
-                keyColumn: "ActivityId",
-                keyValue: 2,
-                column: "Time",
-                value: new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(3345));
-
-            migrationBuilder.UpdateData(
                 table: "Facilities",
                 keyColumn: "FacilityId",
                 keyValue: 1,
@@ -74,14 +60,14 @@ namespace DAB_2_Solution_grp5.Migrations
                 keyColumn: "MaintenanceId",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(4977));
+                value: new DateTime(2022, 11, 11, 15, 9, 3, 805, DateTimeKind.Local).AddTicks(7889));
 
             migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(4987));
+                value: new DateTime(2022, 11, 11, 15, 9, 3, 805, DateTimeKind.Local).AddTicks(7919));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -102,60 +88,46 @@ namespace DAB_2_Solution_grp5.Migrations
                 defaultValue: "");
 
             migrationBuilder.UpdateData(
-                table: "Activities",
-                keyColumn: "ActivityId",
-                keyValue: 1,
-                column: "Time",
-                value: new DateTime(2022, 11, 11, 3, 32, 37, 993, DateTimeKind.Local).AddTicks(5811));
-
-            migrationBuilder.UpdateData(
-                table: "Activities",
-                keyColumn: "ActivityId",
-                keyValue: 2,
-                column: "Time",
-                value: new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(5855));
-
-            migrationBuilder.UpdateData(
                 table: "Facilities",
                 keyColumn: "FacilityId",
                 keyValue: 1,
                 column: "Address",
-                value: "Strand 9");
+                value: "stranvej 123");
 
             migrationBuilder.UpdateData(
                 table: "Facilities",
                 keyColumn: "FacilityId",
                 keyValue: 2,
                 column: "Address",
-                value: "Møllevej 15");
+                value: "navitasvej 123");
 
             migrationBuilder.UpdateData(
                 table: "Facilities",
                 keyColumn: "FacilityId",
                 keyValue: 3,
                 column: "Address",
-                value: "Finlandsgade 22");
+                value: "Langelandsgade 123");
 
             migrationBuilder.UpdateData(
                 table: "Facilities",
                 keyColumn: "FacilityId",
                 keyValue: 4,
                 column: "Address",
-                value: "Finlandsgade 15");
+                value: "Pauldan müllersvej");
 
             migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7659));
+                value: new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(3996));
 
             migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7673));
+                value: new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(4028));
         }
     }
 }

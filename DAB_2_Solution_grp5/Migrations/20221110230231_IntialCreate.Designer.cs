@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221110163238_IntialCreate")]
+    [Migration("20221110230231_IntialCreate")]
     partial class IntialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,13 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.Property<int>("CitizenId")
                         .HasColumnType("int");
 
+                    b.Property<string>("EndDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
                     b.Property<int>("FacilityId")
                         .HasColumnType("int");
 
@@ -45,8 +52,12 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.Property<int>("Participants")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("StartDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
 
                     b.HasKey("ActivityId");
 
@@ -61,19 +72,25 @@ namespace DAB_2_Solution_grp5.Migrations
                         {
                             ActivityId = 1,
                             CitizenId = 3,
+                            EndDate = "2/1/2022",
+                            EndTime = new TimeSpan(0, 12, 0, 0, 0),
                             FacilityId = 4,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 5,
-                            Time = new DateTime(2022, 11, 11, 3, 32, 37, 993, DateTimeKind.Local).AddTicks(5811)
+                            StartDate = "1/1/2022",
+                            StartTime = new TimeSpan(0, 10, 0, 0, 0)
                         },
                         new
                         {
                             ActivityId = 2,
                             CitizenId = 1,
+                            EndDate = "3/2/2022",
+                            EndTime = new TimeSpan(0, 10, 0, 0, 0),
                             FacilityId = 2,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 10,
-                            Time = new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(5855)
+                            StartDate = "2/2/2022",
+                            StartTime = new TimeSpan(0, 8, 0, 0, 0)
                         });
                 });
 
@@ -171,7 +188,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             FacilityId = 1,
-                            Address = "Strand 9",
+                            Address = "stranvej 123",
                             Description = "God plads",
                             Name = "AarhusStrand",
                             Type = "Privat"
@@ -179,7 +196,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             FacilityId = 2,
-                            Address = "Møllevej 15",
+                            Address = "navitasvej 123",
                             Description = "Den ligger ved haven kanten",
                             Name = "Navitas",
                             Type = "Forretning"
@@ -187,7 +204,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             FacilityId = 3,
-                            Address = "Finlandsgade 22",
+                            Address = "Langelandsgade 123",
                             Description = "Skole",
                             Name = "Aarhus Universitet",
                             Type = "Forretning"
@@ -195,7 +212,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             FacilityId = 4,
-                            Address = "Finlandsgade 15",
+                            Address = "Pauldan müllersvej",
                             Description = "Ligger i aarhus N",
                             Name = "Storcenter Nord",
                             Type = "Shopping"
@@ -235,7 +252,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7659),
+                            Date = new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(3996),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -243,7 +260,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7673),
+                            Date = new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(4028),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2
@@ -301,7 +318,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         .IsRequired();
 
                     b.HasOne("DAB_2_Solution_grp5.Models.Personnel", "Personnel")
-                        .WithMany("MaintenaceLogs")
+                        .WithMany("MaintenanceLogs")
                         .HasForeignKey("PersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -325,7 +342,7 @@ namespace DAB_2_Solution_grp5.Migrations
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Personnel", b =>
                 {
-                    b.Navigation("MaintenaceLogs");
+                    b.Navigation("MaintenanceLogs");
                 });
 #pragma warning restore 612, 618
         }

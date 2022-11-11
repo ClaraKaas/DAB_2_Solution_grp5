@@ -21,7 +21,7 @@ namespace DAB_2_Solution_grp5.Models
         public int CitizenId { get; set; } 
         public Citizen Citizen { get; set; } 
         public int FacilityId { get; set; } 
-        public Facility Facility { get; set; } 
+        public Facility Facility { get; set; }
 
         public List<Participant> Participants { get; set; }
     }

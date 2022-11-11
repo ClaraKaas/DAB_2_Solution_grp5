@@ -13,38 +13,6 @@ namespace DAB_2_Solution_grp5.Migrations
                 name: "Participants",
                 table: "Activities");
 
-            migrationBuilder.DropColumn(
-                name: "Time",
-                table: "Activities");
-
-            migrationBuilder.AddColumn<string>(
-                name: "EndDate",
-                table: "Activities",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
-
-            migrationBuilder.AddColumn<TimeSpan>(
-                name: "EndTime",
-                table: "Activities",
-                type: "time",
-                nullable: false,
-                defaultValue: new TimeSpan(0, 0, 0, 0, 0));
-
-            migrationBuilder.AddColumn<string>(
-                name: "StartDate",
-                table: "Activities",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
-
-            migrationBuilder.AddColumn<TimeSpan>(
-                name: "StartTime",
-                table: "Activities",
-                type: "time",
-                nullable: false,
-                defaultValue: new TimeSpan(0, 0, 0, 0, 0));
-
             migrationBuilder.CreateTable(
                 name: "Participant",
                 columns: table => new
@@ -82,32 +50,26 @@ namespace DAB_2_Solution_grp5.Migrations
                 });
 
             migrationBuilder.UpdateData(
-                table: "Activities",
-                keyColumn: "ActivityId",
-                keyValue: 1,
-                columns: new[] { "EndDate", "EndTime", "StartDate", "StartTime" },
-                values: new object[] { "2/1/2022", new TimeSpan(0, 12, 0, 0, 0), "1/1/2022", new TimeSpan(0, 10, 0, 0, 0) });
-
-            migrationBuilder.UpdateData(
-                table: "Activities",
-                keyColumn: "ActivityId",
-                keyValue: 2,
-                columns: new[] { "EndDate", "EndTime", "StartDate", "StartTime" },
-                values: new object[] { "3/2/2022", new TimeSpan(0, 10, 0, 0, 0), "2/2/2022", new TimeSpan(0, 8, 0, 0, 0) });
-
-            migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 1,
                 column: "Date",
+<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.cs
                 value: new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(889));
+========
+                value: new DateTime(2022, 11, 11, 15, 30, 24, 408, DateTimeKind.Local).AddTicks(3509));
+>>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.cs
 
             migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 2,
                 column: "Date",
+<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.cs
                 value: new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(933));
+========
+                value: new DateTime(2022, 11, 11, 15, 30, 24, 408, DateTimeKind.Local).AddTicks(3543));
+>>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.cs
 
             migrationBuilder.InsertData(
                 table: "Participant",
@@ -133,22 +95,6 @@ namespace DAB_2_Solution_grp5.Migrations
             migrationBuilder.DropTable(
                 name: "Participant");
 
-            migrationBuilder.DropColumn(
-                name: "EndDate",
-                table: "Activities");
-
-            migrationBuilder.DropColumn(
-                name: "EndTime",
-                table: "Activities");
-
-            migrationBuilder.DropColumn(
-                name: "StartDate",
-                table: "Activities");
-
-            migrationBuilder.DropColumn(
-                name: "StartTime",
-                table: "Activities");
-
             migrationBuilder.AddColumn<int>(
                 name: "Participants",
                 table: "Activities",
@@ -156,40 +102,33 @@ namespace DAB_2_Solution_grp5.Migrations
                 nullable: false,
                 defaultValue: 0);
 
-            migrationBuilder.AddColumn<DateTime>(
-                name: "Time",
-                table: "Activities",
-                type: "datetime2",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
             migrationBuilder.UpdateData(
                 table: "Activities",
                 keyColumn: "ActivityId",
                 keyValue: 1,
-                columns: new[] { "Participants", "Time" },
-                values: new object[] { 5, new DateTime(2022, 11, 11, 4, 46, 49, 474, DateTimeKind.Local).AddTicks(3306) });
+                column: "Participants",
+                value: 5);
 
             migrationBuilder.UpdateData(
                 table: "Activities",
                 keyColumn: "ActivityId",
                 keyValue: 2,
-                columns: new[] { "Participants", "Time" },
-                values: new object[] { 10, new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(3345) });
+                column: "Participants",
+                value: 10);
 
             migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 1,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(4977));
+                value: new DateTime(2022, 11, 11, 15, 9, 3, 805, DateTimeKind.Local).AddTicks(7889));
 
             migrationBuilder.UpdateData(
                 table: "MaintenanceLogs",
                 keyColumn: "MaintenanceId",
                 keyValue: 2,
                 column: "Date",
-                value: new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(4987));
+                value: new DateTime(2022, 11, 11, 15, 9, 3, 805, DateTimeKind.Local).AddTicks(7919));
         }
     }
 }

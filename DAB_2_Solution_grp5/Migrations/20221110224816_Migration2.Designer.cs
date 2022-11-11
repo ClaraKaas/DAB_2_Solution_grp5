@@ -12,7 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
+<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.Designer.cs
     [Migration("20221110224816_Migration2")]
+========
+    [Migration("20221110233024_Migration2")]
+>>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.Designer.cs
     partial class Migration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -268,7 +272,11 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
+<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.Designer.cs
                             Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(889),
+========
+                            Date = new DateTime(2022, 11, 11, 15, 30, 24, 408, DateTimeKind.Local).AddTicks(3509),
+>>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.Designer.cs
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -276,7 +284,11 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
+<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.Designer.cs
                             Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(933),
+========
+                            Date = new DateTime(2022, 11, 11, 15, 30, 24, 408, DateTimeKind.Local).AddTicks(3543),
+>>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.Designer.cs
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2

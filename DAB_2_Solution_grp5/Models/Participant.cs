@@ -11,6 +11,6 @@ namespace DAB_2_Solution_grp5.Models
         public string Cpr { get; set; }
 
         public int ActivityId { get; set; }
-        public List<Activity> Activities { get; set; } 
+        public List<Activity> Activities { get; set; }
     }
 }

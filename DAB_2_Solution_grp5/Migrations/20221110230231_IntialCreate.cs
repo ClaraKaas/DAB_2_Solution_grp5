@@ -60,7 +60,10 @@ namespace DAB_2_Solution_grp5.Migrations
                 {
                     ActivityId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    StartDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EndDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Participants = table.Column<int>(type: "int", nullable: false),
                     CitizenId = table.Column<int>(type: "int", nullable: false),
@@ -126,10 +129,10 @@ namespace DAB_2_Solution_grp5.Migrations
                 columns: new[] { "FacilityId", "Address", "Description", "Name", "Type" },
                 values: new object[,]
                 {
-                    { 1, "Strand 9", "God plads", "AarhusStrand", "Privat" },
-                    { 2, "Møllevej 15", "Den ligger ved haven kanten", "Navitas", "Forretning" },
-                    { 3, "Finlandsgade 22", "Skole", "Aarhus Universitet", "Forretning" },
-                    { 4, "Finlandsgade 15", "Ligger i aarhus N", "Storcenter Nord", "Shopping" }
+                    { 1, "stranvej 123", "God plads", "AarhusStrand", "Privat" },
+                    { 2, "navitasvej 123", "Den ligger ved haven kanten", "Navitas", "Forretning" },
+                    { 3, "Langelandsgade 123", "Skole", "Aarhus Universitet", "Forretning" },
+                    { 4, "Pauldan müllersvej", "Ligger i aarhus N", "Storcenter Nord", "Shopping" }
                 });
 
             migrationBuilder.InsertData(
@@ -143,11 +146,11 @@ namespace DAB_2_Solution_grp5.Migrations
 
             migrationBuilder.InsertData(
                 table: "Activities",
-                columns: new[] { "ActivityId", "CitizenId", "FacilityId", "Note", "Participants", "Time" },
+                columns: new[] { "ActivityId", "CitizenId", "EndDate", "EndTime", "FacilityId", "Note", "Participants", "StartDate", "StartTime" },
                 values: new object[,]
                 {
-                    { 1, 3, 4, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 5, new DateTime(2022, 11, 11, 3, 32, 37, 993, DateTimeKind.Local).AddTicks(5811) },
-                    { 2, 1, 2, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 10, new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(5855) }
+                    { 1, 3, "2/1/2022", new TimeSpan(0, 12, 0, 0, 0), 4, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 5, "1/1/2022", new TimeSpan(0, 10, 0, 0, 0) },
+                    { 2, 1, "3/2/2022", new TimeSpan(0, 10, 0, 0, 0), 2, "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", 10, "2/2/2022", new TimeSpan(0, 8, 0, 0, 0) }
                 });
 
             migrationBuilder.InsertData(
@@ -155,8 +158,8 @@ namespace DAB_2_Solution_grp5.Migrations
                 columns: new[] { "MaintenanceId", "Date", "Description", "FacilityId", "PersId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7659), "Ved ikke", 1, 1 },
-                    { 2, new DateTime(2022, 11, 11, 8, 32, 37, 993, DateTimeKind.Local).AddTicks(7673), "gegikvep", 2, 2 }
+                    { 1, new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(3996), "Ved ikke", 1, 1 },
+                    { 2, new DateTime(2022, 11, 11, 15, 2, 31, 211, DateTimeKind.Local).AddTicks(4028), "gegikvep", 2, 2 }
                 });
 
             migrationBuilder.CreateIndex(

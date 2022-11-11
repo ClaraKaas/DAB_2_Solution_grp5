@@ -14,7 +14,6 @@ namespace DAB_2_Solution_grp5.Models
         public string Name { get; set; }
         public double Longitude { get; set; }
         public double Latitude { get; set; }
-
         public string Type { get; set; }
         public string Description { get; set; }
 

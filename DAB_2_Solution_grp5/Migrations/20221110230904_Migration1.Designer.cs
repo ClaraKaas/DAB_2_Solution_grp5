@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20221110174649_Migration1")]
+    [Migration("20221110230904_Migration1")]
     partial class Migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,13 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.Property<int>("CitizenId")
                         .HasColumnType("int");
 
+                    b.Property<string>("EndDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
                     b.Property<int>("FacilityId")
                         .HasColumnType("int");
 
@@ -45,8 +52,12 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.Property<int>("Participants")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("StartDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
 
                     b.HasKey("ActivityId");
 
@@ -61,19 +72,25 @@ namespace DAB_2_Solution_grp5.Migrations
                         {
                             ActivityId = 1,
                             CitizenId = 3,
+                            EndDate = "2/1/2022",
+                            EndTime = new TimeSpan(0, 12, 0, 0, 0),
                             FacilityId = 4,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 5,
-                            Time = new DateTime(2022, 11, 11, 4, 46, 49, 474, DateTimeKind.Local).AddTicks(3306)
+                            StartDate = "1/1/2022",
+                            StartTime = new TimeSpan(0, 10, 0, 0, 0)
                         },
                         new
                         {
                             ActivityId = 2,
                             CitizenId = 1,
+                            EndDate = "3/2/2022",
+                            EndTime = new TimeSpan(0, 10, 0, 0, 0),
                             FacilityId = 2,
                             Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl",
                             Participants = 10,
-                            Time = new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(3345)
+                            StartDate = "2/2/2022",
+                            StartTime = new TimeSpan(0, 8, 0, 0, 0)
                         });
                 });
 
@@ -241,7 +258,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-                            Date = new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(4977),
+                            Date = new DateTime(2022, 11, 11, 15, 9, 3, 805, DateTimeKind.Local).AddTicks(7889),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -249,7 +266,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-                            Date = new DateTime(2022, 11, 11, 9, 46, 49, 474, DateTimeKind.Local).AddTicks(4987),
+                            Date = new DateTime(2022, 11, 11, 15, 9, 3, 805, DateTimeKind.Local).AddTicks(7919),
                             Description = "gegikvep",
                             FacilityId = 2,
                             PersId = 2
@@ -307,7 +324,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         .IsRequired();
 
                     b.HasOne("DAB_2_Solution_grp5.Models.Personnel", "Personnel")
-                        .WithMany("MaintenaceLogs")
+                        .WithMany("MaintenanceLogs")
                         .HasForeignKey("PersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -331,7 +348,7 @@ namespace DAB_2_Solution_grp5.Migrations
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Personnel", b =>
                 {
-                    b.Navigation("MaintenaceLogs");
+                    b.Navigation("MaintenanceLogs");
                 });
 #pragma warning restore 612, 618
         }
