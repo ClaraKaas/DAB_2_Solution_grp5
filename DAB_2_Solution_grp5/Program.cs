@@ -19,26 +19,23 @@ namespace DAB_2_Solution_grp5.Data
             {
                 Console.WriteLine("Start");
 
-                Console.WriteLine("Should we seed data? Y/n");
-                ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
-                if (consoleKeyInfo.KeyChar == 'Y')
+                while (true)
                 {
-                    SeedData.SeedDatabase();
-                }
 
-                Console.WriteLine("\n" + "Vis Opgave2_1(a) Opgave2_2(b), Opgave2_3(c), Opgave3_2(d)");
-                consoleKeyInfo = Console.ReadKey();
-                if (consoleKeyInfo.KeyChar == 'a' || consoleKeyInfo.KeyChar == 'b' || consoleKeyInfo.KeyChar == 'c')
-                {
-                    VaelgOpgave(db, consoleKeyInfo.KeyChar);
-                }
+                    Console.WriteLine("\n" + "Vis Opgave2_1(a) Opgave2_2(b), Opgave2_3(c), Opgave3_2(d), Opgave3_3(e)");
+                    ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+                    if (consoleKeyInfo.KeyChar == 'a' || consoleKeyInfo.KeyChar == 'b' || consoleKeyInfo.KeyChar == 'c' || consoleKeyInfo.KeyChar == 'd' || consoleKeyInfo.KeyChar == 'e')
+                    {
+                        VaelgOpgave(db, consoleKeyInfo.KeyChar);
+                    }
 
-                else
-                {
-                    return;
+                    else
+                    {
+                        return;
+                    }
                 }
-                Console.WriteLine("\n" + "Slut");
-                }
+                
+            }
         }
 
         static void VaelgOpgave(MyDbContext db, char c)
@@ -58,6 +55,9 @@ namespace DAB_2_Solution_grp5.Data
                     break;
                 case 'd':
                     Opgave3_2(db);
+                    break;
+                case 'e':
+                    Opgave3_3(db);
                     break;
             }
         }
@@ -83,47 +83,51 @@ namespace DAB_2_Solution_grp5.Data
 
         static void Opgave2_3(MyDbContext db)
         {
-            
+
             var alist = db.Activities.ToList();
-            foreach(var activity in alist)
+            foreach (var activity in alist)
             {
-                Console.WriteLine( 
+                Console.WriteLine(
                     $"\n {db.Facilities.First(u => u.FacilityId == activity.FacilityId).Name} | " +
                     $"{db.Citizens.First(u => u.CitizenId == activity.CitizenId).Namee} | " +
-                    $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).StartDate} " +
                     $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).StartTime} - " +
-                    $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).EndDate} " +
                     $"{db.Activities.First(u => u.ActivityId == activity.ActivityId).EndTime}");
             }
-                        
-            
+
+
         }
 
         static void Opgave3_2(MyDbContext db)
         {
-            var bList = db.Activities.Include(a => a.Participants);
-            foreach (var activity in bList)
-            {
-                Console.WriteLine($"{activity.ActivityId}");
-                var temp = activity.Participants;
-                //Console.WriteLine(temp[0].cpr);
-                foreach (var activityParticipant in temp)
-                {
-                    Console.WriteLine($"{activityParticipant.Cpr}");
-                }
+            var alist = db.Activities.Include(a => a.Participants);
 
+            foreach (var a in alist)
+            {
+
+
+                Console.WriteLine(a.ActivityId);
+                var temp = a.Participants;
+
+                foreach (var act in temp)
+                {
+                    Console.WriteLine(act.Cpr);
+                }
             }
 
+        }
+        static void Opgave3_3(MyDbContext db)
+        {
 
-            /*
-            var plist = db.Participants.ToList();
-            foreach (var part in plist)
+            var blist = db.MaintenanceLogs.ToList();
+            var blist1 = blist.OrderBy(s => s.FacilityId);
+            foreach (var maintenance in blist1)
             {
                 Console.WriteLine(
-                    $"\n {db.Activities.First(u => u.ActivityId == part.ActivityId).ActivityId} | " +
-                    part.Cpr  );
-            }*/
-
+                    $"\n{db.Facilities.First(u => u.FacilityId == maintenance.FacilityId).Name}| " +
+                    $"{db.Personnels.First(u => u.PersId == maintenance.PersId).PersId}| " +
+                    $"{db.MaintenanceLogs.First(u => u.MaintenanceId == maintenance.MaintenanceId).Date} | " +
+                    $"{db.MaintenanceLogs.First(u => u.MaintenanceId == maintenance.MaintenanceId).Description}");
+            }
         }
     }
 }

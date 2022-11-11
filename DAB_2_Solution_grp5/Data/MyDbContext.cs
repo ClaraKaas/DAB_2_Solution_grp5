@@ -22,6 +22,7 @@ namespace DAB_2_Solution_grp5.Data
         public DbSet<Activity>? Activities { get; set; }
         public DbSet<Personnel>? Personnels { get; set; }
         public DbSet<MaintenanceLog>? MaintenanceLogs { get; set; }
+        public DbSet<Participant>? Participants { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,14 +50,11 @@ namespace DAB_2_Solution_grp5.Data
                 new Facility { FacilityId = 3, Name = "Aarhus Universitet", Longitude = 23.44556, Latitude = 1.23334, Type = "Forretning", Description = "Skole" /*Bookable = "Ja",//Items = "Bord og stoler"*/ },
                 new Facility { FacilityId = 4, Name = "Storcenter Nord", Longitude = 12.33343, Latitude = 98.66777, Type = "Shopping", Description = "Ligger i aarhus N" /*//Bookable = "Ja",  //Items = "Butikker"*/});
 
-            
-
-
             // Activity
             modelBuilder.Entity<Activity>().HasKey(b => b.ActivityId);
             modelBuilder.Entity<Activity>().HasData(
-                 new Activity { ActivityId = 1, StartTime = TimeSpan.FromHours(10), EndTime = TimeSpan.FromHours(12), StartDate = "1/1/2022", EndDate = "2/1/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 3,FacilityId = 4 },
-                 new Activity { ActivityId = 2, StartTime = TimeSpan.FromHours(8), EndTime = TimeSpan.FromHours(10), StartDate = "2/2/2022", EndDate = "3/2/2022", Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 1, FacilityId = 2 });
+                 new Activity { ActivityId = 1, StartTime = new DateTime(2022, 3, 2, 12, 30, 1), EndTime = new DateTime(2022, 3, 2, 12, 30, 1), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 3,FacilityId = 4 },
+                 new Activity { ActivityId = 2, StartTime = new DateTime(2022, 3, 2, 12, 30, 1), EndTime = new DateTime(2022, 3, 2, 12, 30, 1), Note = "jnjcxdzrtfyguhijokpszxrtfgyhuijokl", CitizenId = 1, FacilityId = 2 });
 
             modelBuilder.Entity<Activity>()
                 .HasOne(ba => ba.Citizen)
@@ -71,9 +69,9 @@ namespace DAB_2_Solution_grp5.Data
             // MaintenanceLog
             modelBuilder.Entity<MaintenanceLog>().HasKey(b => b.MaintenanceId);
             modelBuilder.Entity<MaintenanceLog>().HasData(
-                new MaintenanceLog { MaintenanceId = 1, Description = "Ved ikke", Date = DateTime.Now.Add(TimeSpan.FromHours(15)), FacilityId = 1, PersId = 1 },
-                new MaintenanceLog { MaintenanceId = 2, Description = "gegikvep", Date = DateTime.Now.Add(TimeSpan.FromHours(15)), FacilityId = 2, PersId = 2 });
-
+                new MaintenanceLog { MaintenanceId = 1, Description = "reparede en stol", Date = new DateTime(2022,3,2,12,30,1), FacilityId = 1, PersId = 1 },
+                new MaintenanceLog { MaintenanceId = 2, Description = "skiftede pære", Date = new DateTime(2022, 2, 1, 12, 00, 20), FacilityId = 2, PersId = 2 },
+                new MaintenanceLog { MaintenanceId = 3, Description = "Rengjort toilletter", Date = new DateTime(2021, 5, 14, 15, 30, 30), FacilityId = 1, PersId = 2 });
             modelBuilder.Entity<MaintenanceLog>()
                 .HasOne(ba => ba.Personnel)
                 .WithMany(a => a.MaintenanceLogs)
@@ -85,12 +83,11 @@ namespace DAB_2_Solution_grp5.Data
                 .HasForeignKey(ba => ba.FacilityId);
 
             // Participant
-
-            modelBuilder.Entity<Participant>().HasKey(b => b.Cpr);
+            modelBuilder.Entity<Participant>().HasKey(b => b.ParticipantId);
             modelBuilder.Entity<Participant>().HasData(
-                new Participant { Cpr = "123021-1234", ActivityId = 1 },
-                new Participant { Cpr = "123021-2345", ActivityId = 1 },
-                new Participant { Cpr = "123021-3456", ActivityId = 2 });
+                new Participant { ParticipantId = 1, Cpr = "123021-1234", ActivityId = 1 },
+                new Participant { ParticipantId = 2, Cpr = "123021-2345", ActivityId = 1 },
+                new Participant { ParticipantId = 3, Cpr = "123021-3456", ActivityId = 2 });
         }
 
     }

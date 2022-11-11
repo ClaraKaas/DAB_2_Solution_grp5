@@ -8,9 +8,10 @@ namespace DAB_2_Solution_grp5.Models
 {
     public class Participant
     {
+        public int ParticipantId { get; set; }
         public string Cpr { get; set; }
 
         public int ActivityId { get; set; }
-        public List<Activity> Activities { get; set; }
+        public Activity Activity { get; set; }
     }
 }

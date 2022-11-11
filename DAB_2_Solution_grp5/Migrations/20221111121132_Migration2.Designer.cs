@@ -12,11 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_2_Solution_grp5.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.Designer.cs
-    [Migration("20221110224816_Migration2")]
-========
-    [Migration("20221110233024_Migration2")]
->>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.Designer.cs
+    [Migration("20221111121132_Migration2")]
     partial class Migration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,21 +23,6 @@ namespace DAB_2_Solution_grp5.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("ActivityParticipant", b =>
-                {
-                    b.Property<int>("ActivitiesActivityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ParticipantsCpr")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ActivitiesActivityId", "ParticipantsCpr");
-
-                    b.HasIndex("ParticipantsCpr");
-
-                    b.ToTable("ActivityParticipant");
-                });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>
                 {
@@ -272,11 +253,7 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 1,
-<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.Designer.cs
-                            Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(889),
-========
-                            Date = new DateTime(2022, 11, 11, 15, 30, 24, 408, DateTimeKind.Local).AddTicks(3509),
->>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.Designer.cs
+                            Date = new DateTime(2022, 11, 12, 4, 11, 31, 839, DateTimeKind.Local).AddTicks(5624),
                             Description = "Ved ikke",
                             FacilityId = 1,
                             PersId = 1
@@ -284,44 +261,60 @@ namespace DAB_2_Solution_grp5.Migrations
                         new
                         {
                             MaintenanceId = 2,
-<<<<<<<< HEAD:DAB_2_Solution_grp5/Migrations/20221110224816_Migration2.Designer.cs
-                            Date = new DateTime(2022, 11, 11, 14, 48, 16, 301, DateTimeKind.Local).AddTicks(933),
-========
-                            Date = new DateTime(2022, 11, 11, 15, 30, 24, 408, DateTimeKind.Local).AddTicks(3543),
->>>>>>>> b9db9ff42a31ba8298bb2b6b0c8962798e9d4aab:DAB_2_Solution_grp5/Migrations/20221110233024_Migration2.Designer.cs
+                            Date = new DateTime(2022, 11, 12, 4, 11, 31, 839, DateTimeKind.Local).AddTicks(5666),
                             Description = "gegikvep",
                             FacilityId = 2,
+                            PersId = 2
+                        },
+                        new
+                        {
+                            MaintenanceId = 3,
+                            Date = new DateTime(2022, 11, 11, 21, 11, 31, 839, DateTimeKind.Local).AddTicks(5669),
+                            Description = "Rengjort toilletter",
+                            FacilityId = 1,
                             PersId = 2
                         });
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Participant", b =>
                 {
-                    b.Property<string>("Cpr")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ParticipantId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ParticipantId"), 1L, 1);
 
                     b.Property<int>("ActivityId")
                         .HasColumnType("int");
 
-                    b.HasKey("Cpr");
+                    b.Property<string>("Cpr")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Participant");
+                    b.HasKey("ParticipantId");
+
+                    b.HasIndex("ActivityId");
+
+                    b.ToTable("Participants");
 
                     b.HasData(
                         new
                         {
-                            Cpr = "123021-1234",
-                            ActivityId = 1
+                            ParticipantId = 1,
+                            ActivityId = 1,
+                            Cpr = "123021-1234"
                         },
                         new
                         {
-                            Cpr = "123021-2345",
-                            ActivityId = 1
+                            ParticipantId = 2,
+                            ActivityId = 1,
+                            Cpr = "123021-2345"
                         },
                         new
                         {
-                            Cpr = "123021-3456",
-                            ActivityId = 2
+                            ParticipantId = 3,
+                            ActivityId = 2,
+                            Cpr = "123021-3456"
                         });
                 });
 
@@ -346,21 +339,6 @@ namespace DAB_2_Solution_grp5.Migrations
                         {
                             PersId = 2
                         });
-                });
-
-            modelBuilder.Entity("ActivityParticipant", b =>
-                {
-                    b.HasOne("DAB_2_Solution_grp5.Models.Activity", null)
-                        .WithMany()
-                        .HasForeignKey("ActivitiesActivityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DAB_2_Solution_grp5.Models.Participant", null)
-                        .WithMany()
-                        .HasForeignKey("ParticipantsCpr")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>
@@ -399,6 +377,22 @@ namespace DAB_2_Solution_grp5.Migrations
                     b.Navigation("Facility");
 
                     b.Navigation("Personnel");
+                });
+
+            modelBuilder.Entity("DAB_2_Solution_grp5.Models.Participant", b =>
+                {
+                    b.HasOne("DAB_2_Solution_grp5.Models.Activity", "Activity")
+                        .WithMany("Participants")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+                });
+
+            modelBuilder.Entity("DAB_2_Solution_grp5.Models.Activity", b =>
+                {
+                    b.Navigation("Participants");
                 });
 
             modelBuilder.Entity("DAB_2_Solution_grp5.Models.Citizen", b =>

@@ -11,10 +11,8 @@ namespace DAB_2_Solution_grp5.Models
     {
         
         public int ActivityId { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        public string StartDate { get; set; }
-        public string EndDate { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public string Note { get; set; }
         
 
